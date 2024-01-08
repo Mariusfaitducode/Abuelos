@@ -22,4 +22,63 @@
     <app-card-product></app-card-product>
 
   </ion-list> -->
+
+  <div class="padding-page">
+
+    <ion-title>Sélectionne un vendeur</ion-title>
+
+    <div>
+
+      <app-seller-row></app-seller-row>
+
+    </div>
+
+    <ion-title>Disponibilité</ion-title>
+
+    <ion-item>
+      <ion-label>Lieux</ion-label>
+      <ion-button>Sélectionner</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-button>Sélectionner</ion-button>
+    </ion-item>
+
+    <ion-button >Trouver un accord</ion-button>
+
+    <ion-title>Produit</ion-title>
+
+    <ion-item>
+      <ion-label>Quantité</ion-label>
+      <!-- <ion-select>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select> -->
+    </ion-item>
+    <ion-item>
+      <ion-label>Montant</ion-label>
+    </ion-item>
+
+    <ion-title>Moyen de paiement</ion-title>
+
+    <ion-item>
+      <ion-label>Paypal</ion-label>
+      <ion-radio slot="start"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Carte bancaire</ion-label>
+      <ion-radio slot="start"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apple pay</ion-label>
+      <ion-radio slot="start"></ion-radio>
+    </ion-item>
+
+    <ion-button>Payer</ion-button>
+
+  </div>
 </ion-content>

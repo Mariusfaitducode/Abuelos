@@ -26,6 +26,8 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 
+// Paddings
+
 .padding-16 {
   padding: 16px;
 }
@@ -34,6 +36,19 @@
     padding: 16px 0px;
 }
 
+
+// Flexbox
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+// Buttons
+
 .seller-button{
     padding: 0px 8px;
 }
+

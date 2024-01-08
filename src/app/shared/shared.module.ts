@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardProductComponent } from '../components/product/card-product/card-product.component';
+import { SellerRowComponent } from '../components/user/seller-row/seller-row.component';
 
 @NgModule({
     imports: [
@@ -16,11 +17,12 @@ import { CardProductComponent } from '../components/product/card-product/card-pr
     ],
     declarations: [
       CardProductComponent,
+      SellerRowComponent,
       
     ],
     exports:[
       CardProductComponent, 
-     
+      SellerRowComponent,
     ]
   })
   export class SharedModule { }

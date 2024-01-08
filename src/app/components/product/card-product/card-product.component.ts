@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-product',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardProductComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {}
+
+  goToProductPage(){
+    // console.log('go to product page');
+    this.router.navigate(['tabs/product']);
+  }
 
 }
