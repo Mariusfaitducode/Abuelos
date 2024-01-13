@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/search/search.module').then(m => m.SearchPageModule)
       },
       {
+        path: 'message',
+        loadChildren: () => import('../pages/message/message.module').then(m => m.MessagePageModule)
+      },
+      {
         path: 'basket',
         loadChildren: () => import('../pages/basket/basket.module').then(m => m.BasketPageModule)
       },
