@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+      <ion-button fill="icon-only" slot="start" (click)="goBackButton()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+
+ 
+    <ion-title>Christine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Christine</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="chat">
+
+    <div class="chat-list">
+
+      <div class="message left">
+        <div class="message-content">Message 1</div>
+      </div>
+      <div class="message right">
+        <div class="message-content">Message 2</div>
+      </div>
+      <div class="message left">
+        <div class="message-content">Message 3</div>
+      </div>
+
+    </div>
+
+
+    <div class="chat-box">
+      <ion-textarea fill="outline"></ion-textarea>
+      <ion-button>Envoyer</ion-button>
+    </div>
+  </div>
+</ion-content>
