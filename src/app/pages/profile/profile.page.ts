@@ -9,4 +9,6 @@ export class ProfilePage {
 
   constructor() {}
 
+  user = {admin : true};
+
 }
