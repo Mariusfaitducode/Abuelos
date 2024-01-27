@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -7,8 +8,16 @@ import { Component } from '@angular/core';
 })
 export class ProfilePage {
 
-  constructor() {}
+  constructor(private router : Router) {}
 
   user = {admin : true};
+
+  goToOrders(){
+    this.router.navigate(['/tabs/profile/orders']);
+  }
+
+  goToSettings(){
+    this.router.navigate(['/tabs/profile/settings']);
+  }
 
 }
