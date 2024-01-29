@@ -10,13 +10,6 @@ export class ProductServiceService {
 
     console.log("Product Service is working");
     // console.log(this.getProducts())
-
-    this.getProducts().subscribe((data)=>{
-      
-      console.log("Data from getProducts() in product-service.service.ts");
-      console.log(data);
-
-    })
   }
 
   getProducts(){

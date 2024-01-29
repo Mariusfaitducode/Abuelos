@@ -18,9 +18,10 @@
 
     <ion-list class="product-list">
     
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
+      <div *ngFor="let product of products">
+        <app-card-product [product]="product"></app-card-product>
+      </div>
+
 
     </ion-list>
 
