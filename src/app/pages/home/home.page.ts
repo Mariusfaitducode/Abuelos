@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductServiceService } from 'src/app/services/product-service.service';
+import { Router } from '@angular/router';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,9 @@ export class HomePage {
 
   products : any = [];
 
-  constructor(private productService : ProductServiceService) {}
+  constructor(
+    private router : Router,
+    private productService : ProductService) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe((res : any) => {
@@ -19,5 +22,11 @@ export class HomePage {
       console.log(this.products)
 
     });
+  }
+
+  goToSignUpPage(){
+    // console.log('go to sign up page');
+    this.router.navigate(['/sign-up']);
+
   }
 }

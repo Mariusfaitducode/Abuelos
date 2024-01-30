@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'message',
     loadChildren: () => import('./pages/message/message.module').then( m => m.MessagePageModule)
   },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./pages/connection/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
   // {
   //   path: 'search',
   //   loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
