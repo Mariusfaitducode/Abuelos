@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -9,7 +10,9 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class SignUpPage implements OnInit {
 
-  constructor(private userService : UserService) { }
+  constructor(
+    private router : Router,
+    private userService : UserService) { }
 
   newUser : User = new User();
 
@@ -27,11 +30,25 @@ export class SignUpPage implements OnInit {
   }
 
   signUp(){
-    console.log(this.newUser);
 
-    this.userService.postUser(this.newUser).subscribe((res : any) => {
-      console.log(res);
+    this.userService.postUser(this.newUser).subscribe({
+      
+      next: (res : any) => {
+        console.log(res);
+        this.router.navigate(['/log-in']);
+      },
+      error: (err : any) => {
+        console.log(err);
+      }
     });
+  }
+
+  goToLogInPage(){
+    this.router.navigate(['/log-in']);
+  }
+
+  goToHomePage(){
+    this.router.navigate(['/tabs/home']);
   }
 
 }
