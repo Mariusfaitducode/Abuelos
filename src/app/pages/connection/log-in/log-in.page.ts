@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/user/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class LogInPage implements OnInit {
 
   constructor(
     private router : Router,
+    private authService : AuthService,
     private userService : UserService) { }
 
   newUser : User = new User();
@@ -20,24 +22,47 @@ export class LogInPage implements OnInit {
   ngOnInit() {
   }
 
-  validForm(){
-    return this.newUser.pseudo != "" && this.newUser.password != "";
-  }
 
-  logIn(){
-    console.log(this.newUser);
-
-    this.userService.postUser(this.newUser).subscribe((res : any) => {
-      console.log(res);
-    });
-  }
+  // Navigation
 
   goToSignUpPage(){
-    this.router.navigate(['/log-in']);
+    this.router.navigate(['/sign-up']);
   }
 
   goToHomePage(){
     this.router.navigate(['/tabs/home']);
   }
+
+
+  // Form
+
+
+  validForm(){
+    return this.newUser.email != "" && this.newUser.password != "";
+  }
+
+  logIn(){
+    console.log(this.newUser);
+  
+    this.authService.logIn(this.newUser).subscribe((res : any) => {
+      if (res.error){
+        console.log(res.error);
+      } 
+      else {
+        console.log(res);
+
+        this.authService.setToken(res.token);
+
+        this.userService.getUser().subscribe((res : any) => {
+          console.log(res);
+
+          localStorage.setItem('user', JSON.stringify(res));
+          this.router.navigate(['tabs/profile']);
+        });
+      }
+    });
+  }
+
+  
 
 }

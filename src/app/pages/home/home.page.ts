@@ -17,11 +17,11 @@ export class HomePage {
     private productService : ProductService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((res : any) => {
-      this.products = res.products;
-      console.log(this.products)
+    // this.productService.getProducts().subscribe((res : any) => {
+    //   this.products = res.products;
+    //   console.log(this.products)
 
-    });
+    // });
   }
 
   goToSignUpPage(){
