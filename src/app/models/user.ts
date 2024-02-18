@@ -4,6 +4,8 @@ export class User{
 
     // id: number = 0;
 
+    admin = true;
+
     firstname: string = "";
     lastname: string = "";
     pseudo: string = "";

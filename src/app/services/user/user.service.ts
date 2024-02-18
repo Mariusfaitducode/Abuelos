@@ -28,4 +28,9 @@ export class UserService {
     }));
   }
 
+
+  getUserInStorage(){
+    return localStorage.getItem('user');
+  }
+
 }
