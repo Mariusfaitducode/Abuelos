@@ -1,5 +1,41 @@
 
 
+// Header
+
+.header{
+
+    position: sticky;
+
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-svg{
+    width: 100%;
+    height: auto;
+}
+
+.header-title{
+
+    position: absolute;
+
+    color: #C95807;
+    text-align: center;
+    font-family: "Lora";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
 .product-list{
     display: flex;
     flex-direction: row;
@@ -14,7 +50,18 @@
     overflow: scroll;
 }
 
-.info-cagette{
-    padding: 0px 16px;
+// .info-cagette{
+//     padding: 0px 16px;
+// }
+
+.infos-card{
+    margin: 16px 0px;
+    padding: 0px;
+
+    border-radius: 32px;
+
+    background-color: #FCF2EA;
 }
+
+
 

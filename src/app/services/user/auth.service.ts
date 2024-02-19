@@ -17,6 +17,10 @@ export class AuthService {
   signUp(user : User){
     // return this.http.post(this.url + 'api/users', user);
 
+    this.http.post(this.url + 'api/auth/signup', user).subscribe((res : any) => {
+
+    });
+
     return this.http.post<User>(this.url + 'api/auth/signup', user).pipe(tap({
       next: res => { console.log('Response:', res); },
       error: err => { console.error('Error:', err); }

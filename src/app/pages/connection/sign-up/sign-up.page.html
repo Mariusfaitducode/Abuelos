@@ -53,7 +53,8 @@
 
   </ion-list>
 
-  <ion-button expand="block" [disabled]="!validForm() || !validPassword()" (click)="signUp()">Créer mon compte</ion-button>
+  <ion-button expand="block" [disabled]="!validForm() || !validPassword() || !verifyPasswordConfirmation()"
+   (click)="signUp()">Créer mon compte</ion-button>
 
   <ion-row>
     <ion-col>

@@ -1,14 +1,28 @@
-<ion-tabs>
+<ion-tabs >
 
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" class="navbar">
     <ion-tab-button tab="home" href="/tabs/home">
-      <ion-icon aria-hidden="true" name="home"></ion-icon>
-      <ion-label>Accueil</ion-label>
+      <!-- <ion-icon aria-hidden="true" name="home"></ion-icon>
+      <ion-label>Accueil</ion-label> -->
+
+      <!-- <ion-icon class="icon" src="assets/icon/home.svg"></ion-icon> -->
+
+      <svg class="icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="Home" d="M27 22.4107V13.9237C27 13.1068 27 12.6983 26.8984 12.3174C26.8085 11.9807 26.6605 11.6615 26.4609 11.3736C26.2344 11.0477 25.9219 10.777 25.2922 10.24L17.7922 3.81505C16.6266 2.81612 16.0422 2.31589 15.3859 2.1262C14.8078 1.95793 14.1922 1.95793 13.6125 2.1262C12.9563 2.31589 12.375 2.81459 11.2094 3.81199L3.70781 10.24C3.07969 10.7785 2.76563 11.0477 2.54063 11.372C2.34031 11.6604 2.19182 11.9801 2.10156 12.3174C2 12.6968 2 13.1068 2 13.9237V22.4107C2 23.8365 2 24.5493 2.2375 25.1108C2.39437 25.4821 2.62442 25.8195 2.9145 26.1038C3.20458 26.388 3.54901 26.6135 3.92813 26.7675C4.50313 27 5.23125 27 6.6875 27C8.14375 27 8.87188 27 9.44688 26.7675C9.82599 26.6135 10.1704 26.388 10.4605 26.1038C10.7506 25.8195 10.9806 25.4821 11.1375 25.1108C11.375 24.5493 11.375 23.8365 11.375 22.4107V20.881C11.375 20.0696 11.7042 19.2914 12.2903 18.7176C12.8763 18.1438 13.6712 17.8215 14.5 17.8215C15.3288 17.8215 16.1237 18.1438 16.7097 18.7176C17.2958 19.2914 17.625 20.0696 17.625 20.881V22.4107C17.625 23.8365 17.625 24.5493 17.8625 25.1108C18.0194 25.4821 18.2494 25.8195 18.5395 26.1038C18.8296 26.388 19.174 26.6135 19.5531 26.7675C20.1281 27 20.8562 27 22.3125 27C23.7688 27 24.4969 27 25.0719 26.7675C25.451 26.6135 25.7954 26.388 26.0855 26.1038C26.3756 25.8195 26.6056 25.4821 26.7625 25.1108C27 24.5493 27 23.8365 27 22.4107Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
     </ion-tab-button>
 
     <ion-tab-button tab="search" href="/tabs/search">
-      <ion-icon aria-hidden="true" name="search"></ion-icon>
-      <ion-label>Recherche</ion-label>
+      <!-- <ion-icon aria-hidden="true" name="search"></ion-icon>
+      <ion-label>Recherche</ion-label> -->
+
+      <!-- <ion-icon src="assets/icon/search.svg"></ion-icon> -->
+
+
+      <svg class="search-icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="Search" d="M10.6912 21.3812C13.0633 21.3809 15.3671 20.5869 17.2355 19.1255L23.1103 25L25 23.1104L19.1252 17.2359C20.5874 15.3674 21.382 13.0632 21.3824 10.6906C21.3824 4.79608 16.586 0 10.6912 0C4.79633 0 0 4.79608 0 10.6906C0 16.5851 4.79633 21.3812 10.6912 21.3812ZM10.6912 2.67265C15.1133 2.67265 18.7096 6.26871 18.7096 10.6906C18.7096 15.1125 15.1133 18.7086 10.6912 18.7086C6.26904 18.7086 2.6728 15.1125 2.6728 10.6906C2.6728 6.26871 6.26904 2.67265 10.6912 2.67265Z"/>
+      </svg>
     </ion-tab-button>
 
     <ion-tab-button tab="basket" href="/tabs/basket">
@@ -18,14 +32,27 @@
 
     <ion-tab-button tab="message" href="/tabs/message">
       <!-- <ion-icon aria-hidden="true" name="search"></ion-icon> -->
-      <ion-icon aria-hidden="true" name="chatbubbles"></ion-icon>
-      <ion-label>Message</ion-label>
+      <!-- <ion-icon aria-hidden="true" name="chatbubbles"></ion-icon>
+      <ion-label>Message</ion-label> -->
+
+      <svg class="icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="Message " d="M27 13.8056C27.0037 15.6386 26.5755 17.4467 25.75 19.0833C24.77 21.0441 23.2635 22.6933 21.3992 23.8462C19.5349 24.9992 17.3864 25.6103 15.1944 25.6111C13.3614 25.6148 11.5533 25.1866 9.91666 24.3611L2 27L4.63889 19.0833C3.81339 17.4467 3.38515 15.6386 3.38889 13.8056C3.38974 11.6136 4.00085 9.46509 5.15377 7.60078C6.3067 5.73648 7.9559 4.22998 9.91666 3.25002C11.5533 2.42453 13.3614 1.99629 15.1944 2.00002H15.8889C18.7838 2.15973 21.5181 3.38164 23.5682 5.43177C25.6184 7.4819 26.8403 10.2162 27 13.1111V13.8056Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- <ion-icon src="assets/icon/message.svg"></ion-icon> -->
+
     </ion-tab-button>
 
     <ion-tab-button tab="profile" href="/tabs/profile">
-      <ion-icon aria-hidden="true" name="person"></ion-icon>
-      
-      <ion-label>Profil</ion-label>
+      <!-- <ion-icon aria-hidden="true" name="person"></ion-icon>
+      <ion-label>Profil</ion-label> -->
+      <svg class="icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="Profil" d="M18.6667 17.9091H10.3333C8.1232 17.9091 6.00358 18.6274 4.44078 19.9061C2.87797 21.1847 2 22.919 2 24.7273V25.8636C2 25.8636 6.34028 27 14.5 27C22.6597 27 27 25.8636 27 25.8636V24.7273C27 22.919 26.122 21.1847 24.5592 19.9061C22.9964 18.6274 20.8768 17.9091 18.6667 17.9091ZM7.55556 7.68182C7.55556 6.17491 8.2872 4.72971 9.58954 3.66417C10.8919 2.59862 12.6582 2 14.5 2C16.3418 2 18.1081 2.59862 19.4105 3.66417C20.7128 4.72971 21.4444 6.17491 21.4444 7.68182C21.4444 10.8193 18.3347 14.5 14.5 14.5C10.6653 14.5 7.55556 10.8193 7.55556 7.68182Z" stroke-miterlimit="10" stroke-linecap="square"/>
+      </svg>
+
+      <!-- <ion-icon src="assets/icon/profil.svg"></ion-icon> -->
+
+        
     </ion-tab-button>
   </ion-tab-bar>
 

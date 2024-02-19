@@ -1,20 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Bouche à Orange
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Bouche à Orange</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <div class="header">
+    <svg class="header-svg" viewBox="0 0 390 108" xmlns="http://www.w3.org/2000/svg">
+      <path d="M390 108C236 88 152.5 88 0 108V0H390V108Z" fill="#F4DDCA"/>
+      </svg> 
+
+     <div class="header-title">Abuelos</div> 
+  </div>
+
+
 
   <div class="padding-page"> 
-    <ion-title>Produit de la saison</ion-title>
+    <div class="section-title">Produit de la saison</div>
 
     <ion-list class="product-list">
     
@@ -30,10 +29,10 @@
       <p>(2€ de remise)</p>
     </div>
 
-    <ion-title>Le concept</ion-title>
+    <div class="section-title">Le concept</div>
 
     <ion-list>
-      <ion-card>
+      <ion-card class="infos-card">
         <ion-card-header>
           <ion-card-title>Agriculture du non agir</ion-card-title>
         </ion-card-header>
@@ -43,7 +42,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card>
+      <ion-card class="infos-card">
         <ion-card-header>
           <ion-card-title>Notre histoire</ion-card-title>
         </ion-card-header>
@@ -54,7 +53,7 @@
       </ion-card>
     </ion-list>
     
-    <ion-button expand="block" class="seller-button" (click)="goToSignUpPage()">Devenir vendeur</ion-button>
+    <ion-button expand="block" class="global-button" (click)="goToSignUpPage()">Devenir vendeur</ion-button>
 
   </div>
 

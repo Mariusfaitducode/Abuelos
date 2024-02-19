@@ -23,13 +23,19 @@ export class SignUpPage implements OnInit {
   ngOnInit() {
   }
 
+  
   validForm(){
     return this.newUser.firstname != "" && this.newUser.lastname != "" && this.newUser.pseudo != "" && this.newUser.email != "" && this.newUser.password != "";
   }
-
+  
   validPassword(){
+    return this.newUser.password.length >= 6;
+  }
+
+  verifyPasswordConfirmation(){
     return this.newUser.password == this.passwordConfirmation;
   }
+
 
   signUp(){
 
@@ -52,6 +58,7 @@ export class SignUpPage implements OnInit {
       // }
     });
   }
+
 
   goToLogInPage(){
     this.router.navigate(['/log-in']);
