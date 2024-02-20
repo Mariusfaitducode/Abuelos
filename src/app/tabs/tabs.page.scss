@@ -2,10 +2,15 @@
 .navbar{
     // position: fixed;
     // width: 390px;
-    height: 90px;
+    height: 70px;
     // top: 0;
     // left: 0;
     --background: #fcf2ea;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 img{
@@ -17,8 +22,6 @@ img{
     width: 28px;
     height: 28px;
 
-    color: #888;
-
     stroke: #888;
     stroke-width: 3px;
 }
@@ -27,6 +30,41 @@ img{
     width: 28px;
     height: 28px;
     fill: #888;
-    stroke: #888;
-    // stroke-width: 0.5px;
+}
+
+.tab-selected .icon{
+    stroke: var(--ion-color-primary);
+}
+
+.tab-selected .search-icon{
+    fill: var(--ion-color-primary);
+}
+
+#Search{
+    transform: scale(1.1667);
+}
+
+
+.basket_logo_empty{
+    width: 60px;
+    height: 40px;
+    padding-bottom: 12px;
+    display: block;
+}
+
+
+.tab-selected .basket_logo_empty{
+    display: none;
+}
+
+.basket_logo_full{
+    
+    display: none;
+}
+
+.tab-selected .basket_logo_full{
+    width: 60px;
+    height: 40px;
+    padding-bottom: 8px;
+    display: block;
 }

@@ -39,12 +39,10 @@
 // Title
 
 .section-title{
-    color: #000;
-    font-family: "Inter";
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
-    line-height: 25px; /* 100% */
+    line-height: 25px;
     letter-spacing: 0.005px; 
 }
 
@@ -60,19 +58,30 @@
 
 // Buttons
 
-.global-button{
+.button{
     text-transform: none;
-    --background: #C95807;
+    --background: var(--ion-color-primary);
     height: 76px;
 
     --border-radius: 32px;
 
-    color: white;
-    font-family: Inter;
-    font-size: 20px;
+    color: var(--ion-color-primary-contrast);
+    font-size: 22px;
     font-style: normal;
     font-weight: 800; 
-
-    
 }
 
+
+.searchbar{
+    --background : var(--ion-color-secondary-shade);
+    height: 44px;
+
+    --border-radius: 22px;
+
+    --color: var(--ion-color-primary);
+    --icon-color: var(--ion-color-primary);
+}
+
+.searchbar-input{
+font-weight: bold !important;
+}
