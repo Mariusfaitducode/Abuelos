@@ -5,7 +5,7 @@
     height: 70px;
     // top: 0;
     // left: 0;
-    --background: #fcf2ea;
+    --background: var(--ion-color-secondary-tint);
 
     display: flex;
     flex-direction: row;
@@ -22,14 +22,14 @@ img{
     width: 28px;
     height: 28px;
 
-    stroke: #888;
+    stroke: var(--medium-gray);
     stroke-width: 3px;
 }
 
 .search-icon{
     width: 28px;
     height: 28px;
-    fill: #888;
+    fill: var(--medium-gray);
 }
 
 .tab-selected .icon{

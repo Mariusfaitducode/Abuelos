@@ -6,7 +6,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 12px 0px;
+
+    border-bottom : 1px solid var(--ion-color-primary);
 }
 
 .contact-infos{
@@ -18,5 +20,9 @@
 }
 
 .contact{
-    margin-right: 16px;
+    margin: 0px 16px;
+}
+
+.pseudo-image{
+    border-radius: 50%;
 }

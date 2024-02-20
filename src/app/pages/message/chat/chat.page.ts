@@ -11,6 +11,15 @@ export class ChatPage implements OnInit {
   constructor(private route : Router) { }
 
   ngOnInit() {
+
+
+    document.addEventListener('input', (event : any) => {
+      if (event.target.id === 'myTextarea') {
+        const textarea = event.target;
+        textarea.style.height = 'auto'; // Réinitialise la hauteur pour permettre la réduction
+        textarea.style.height = textarea.scrollHeight + 'px'; // Ajuste la hauteur en fonction du contenu
+      }
+    });
   }
 
   goBackButton(){

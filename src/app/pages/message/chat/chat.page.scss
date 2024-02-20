@@ -1,16 +1,35 @@
 
 
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--ion-color-primary);
+}
+
+.header ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+
+
 .chat{
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 8px;
+    // padding: 8px;
 }
 
 .chat-list{
     height: 85%;
     overflow-y: scroll;
+    padding-top: 32px;
 }
 
 .left{
@@ -27,15 +46,15 @@
 }
 
 .left .message-content{
-    padding: 8px;
-    border-radius: 4px;
-    background-color: var(--ion-color-primary);
+    padding: 8px 12px;
+    border-radius: 22px;
+    background-color: var(--light-gray);
 
 }
 
 .right .message-content{
-    padding: 8px;
-    border-radius: 4px;
+    padding: 8px 12px;
+    border-radius: 22px;
     background-color: var(--ion-color-secondary);
 
 }
@@ -44,6 +63,43 @@
     display: flex;
     flex-direction: row;
     height: 15%;
-    // padding: 16px;
+
+    background : var(--ion-color-secondary-shade);
+    height: auto;
+
+    border-radius: 22px;
+
+    color: var(--ion-color-primary);
 }
+
+.chat-input{
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    outline: none;
+
+    width: 100%; /* Assurez-vous qu'il occupe toute la largeur disponible */
+    resize: none; /* Empêche l'utilisateur de redimensionner manuellement le textarea */
+    overflow-y: auto; /* Active le défilement vertical si le texte dépasse la hauteur maximale */
+    min-height: 20px; /* Hauteur initiale pour 1 ligne, ajustez selon la taille de votre police */
+    max-height: 84px;
+
+    color: var(--black);
+}
+
+// ion-textarea {
+//     --padding-start: 0;
+//     --padding-end: 0;
+//     --padding-top: 0;
+//     --padding-bottom: 0 !important;
+
+//     --min-height: 0; /* Essayez de réduire la hauteur minimale */
+//     overflow: hidden;    
+// }
+
+
+ion-button {
+    --background : none;
+  }
+
 
