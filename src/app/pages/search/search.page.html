@@ -16,27 +16,23 @@
     <ion-searchbar class="searchbar" placeholder="Recherche"></ion-searchbar>
 
 
-    <ion-title>Produits</ion-title>
+    <!-- <ion-title></ion-title> -->
 
-    <ion-title>Orange</ion-title>
-
-    <ion-list class="product-list">
-    
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-
-    </ion-list>
-
-    <ion-title>Kiwi</ion-title>
+    <div>Produits</div>
 
     <ion-list class="product-list">
-    
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-    <app-card-product></app-card-product>
-
+      <div *ngFor="let product of products">
+        <app-card-product [product]="product"></app-card-product>
+      </div>
     </ion-list>
+    
+    <div>Vendeur</div>
+
+    <ion-list class="contact-list">
+      <app-contact-row></app-contact-row>
+      <app-contact-row></app-contact-row>
+    </ion-list>
+
     
   </div>
 

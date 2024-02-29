@@ -1,17 +1,35 @@
 
 
 .seller-row{
-    padding: 8px;
+    padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    border-radius: 32px;
 }
 
 .seller-infos{
-    padding-left: 8px;
+    // padding-left: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
     
+}
+
+.pseudo-image{
+    border-radius: 50%;
+}
+
+.seller-name{
+    padding-left: 16px;
+}
+
+.chat-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-right: 8px;
 }
 
