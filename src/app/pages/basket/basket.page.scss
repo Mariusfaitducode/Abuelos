@@ -1,5 +1,24 @@
 
 
-.page-title{
-    padding-bottom: 32px;
+.section-title{
+    padding-top: 32px;
+}
+
+.card-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.card-button{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 32px;
+    width: 50%;
 }

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -20,6 +21,8 @@ export class SignUpPage implements OnInit {
 
   passwordConfirmation : string = "";
 
+  errorMessage : string = "";
+
   ngOnInit() {
   }
 
@@ -39,23 +42,16 @@ export class SignUpPage implements OnInit {
 
   signUp(){
 
-    this.authService.signUp(this.newUser).subscribe((res : any) =>{
-
-      if (res.error){
-        console.log(res.error);
-      } 
-      else {
+    this.authService.signUp(this.newUser).subscribe({
+      next: (res : any) => {
         console.log(res);
+        this.errorMessage = res.error.message;
         this.router.navigate(['/log-in']);
+      },
+      error: (res : HttpErrorResponse) => {
+        console.log(res);
+        this.errorMessage = res.error.message;
       }
-      
-      // next: (res : any) => {
-      //   console.log(res);
-      //   this.router.navigate(['tabs/profile/log-in']);
-      // },
-      // error: (err : any) => {
-      //   console.log(err);
-      // }
     });
   }
 
