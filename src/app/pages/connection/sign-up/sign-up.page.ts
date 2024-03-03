@@ -41,11 +41,11 @@ export class SignUpPage implements OnInit {
 
 
   signUp(){
-
+    this.errorMessage = '';
     this.authService.signUp(this.newUser).subscribe({
       next: (res : any) => {
         console.log(res);
-        this.errorMessage = res.error.message;
+        
         this.router.navigate(['/log-in']);
       },
       error: (res : HttpErrorResponse) => {

@@ -14,7 +14,7 @@
 
   <div class="padding-page">
     
-    <ion-title>Fiche produit</ion-title>
+    <ion-title>{{product.name}}</ion-title>
 
     <div class="product-section">
       <div>Saison : hiver</div>
@@ -27,7 +27,7 @@
           <div>Soit 1,20€/kg</div>
         </div>
         
-        <ion-button  >Ajouter au panier</ion-button>
+        <ion-button  (click)="addProductInBasket()">Ajouter au panier</ion-button>
       </div>
 
       <!-- <ion-item>

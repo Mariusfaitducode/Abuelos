@@ -16,7 +16,7 @@ export class CardProductComponent  implements OnInit {
 
   goToProductPage(){
     // console.log('go to product page');
-    this.router.navigate(['tabs/product']);
+    this.router.navigate(['tabs/product/' + this.product._id]);
   }
 
 }

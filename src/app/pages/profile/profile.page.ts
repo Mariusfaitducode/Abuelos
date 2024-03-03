@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/user/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -11,7 +12,8 @@ export class ProfilePage {
 
   constructor(
     private router : Router,
-    private route : ActivatedRoute) {}
+    private route : ActivatedRoute,
+    private authService : AuthService) {}
 
   user : User = new User();
 
@@ -33,6 +35,12 @@ export class ProfilePage {
 
   goToSettings(){
     this.router.navigate(['/tabs/profile/settings']);
+  }
+
+  disconnect(){
+    this.user = new User();
+    this.authService.disconnect();
+    this.router.navigate(['/log-in']);
   }
 
 }
