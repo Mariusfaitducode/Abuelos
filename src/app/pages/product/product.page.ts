@@ -19,20 +19,19 @@ export class ProductPage implements OnInit {
 
   product : Product = new Product();
 
+  
   ngOnInit() {
 
     this.route.params.subscribe((params : any) => {
 
       if (params.id){
-        let products = this.productService.getProducts();
-        
-        if (products.length > 0){
-          this.product = products.find((p : any) => p._id == params.id)!;
-        }
+        this.productService.getProducts().subscribe(products => {
+          if (products.length > 0){
+            this.product = products.find((p : any) => p._id == params.id)!;
+          }
+        });
       }
     });
-
-
   }
 
   addProductInBasket(){

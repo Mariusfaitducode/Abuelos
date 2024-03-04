@@ -19,12 +19,9 @@ export class SearchPage implements OnInit {
 
 
   ngOnInit() {
-    // this.productService.getProducts().subscribe((res : any) => {
-    //   this.products = res;
-    //   console.log(res)
-
-    // });
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 
 }

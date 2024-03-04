@@ -1,7 +1,7 @@
 
 
 export class Product{
-    _id: number;
+    _id: string;
     name: string;
     description: string;
     price: number;
@@ -12,7 +12,7 @@ export class Product{
     // created_at: string;
     // updated_at: string;
 
-    constructor(id: number = 0, name: string = '', description: string = '', price: number = 0, created_at: string = '', updated_at: string = ''){
+    constructor(id: string = '', name: string = '', description: string = '', price: number = 0, created_at: string = '', updated_at: string = ''){
         this._id = id;
         this.name = name;
         this.description = description;

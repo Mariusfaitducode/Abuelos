@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/user/auth.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-tab3',
@@ -13,19 +14,20 @@ export class ProfilePage {
   constructor(
     private router : Router,
     private route : ActivatedRoute,
-    private authService : AuthService) {}
+    private authService : AuthService,
+    private userService : UserService) {}
 
-  user : User = new User();
+  user : User | null = null;
 
 
   ngOnInit(){
 
     this.route.queryParams.subscribe(params =>{
 
-      if (localStorage.getItem('user')){
-
-        this.user = JSON.parse(localStorage.getItem('user')!);
-      }
+      this.userService.getUser().subscribe(user => {
+        this.user = user;
+      });
+      console.log(this.user);
     })
   }
 

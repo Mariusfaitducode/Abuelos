@@ -19,16 +19,14 @@ export class HomePage {
 
   ngOnInit() {
 
-    this.productService.loadProducts().subscribe((res : any) => {
-      this.products = this.productService.getProducts();
-      console.log(res)
+      this.productService.getProducts().subscribe(products => {
+        this.products = products;
+      });
 
-    });
   }
 
   goToSignUpPage(){
     // console.log('go to sign up page');
     this.router.navigate(['/sign-up']);
-
   }
 }

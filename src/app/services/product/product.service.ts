@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { Product } from 'src/app/models/product';
 
 @Injectable({
@@ -13,13 +13,13 @@ export class ProductService {
   url : string = 'http://localhost:3001/';
 
 
-  products : Product[] = [];
+  private productsSubject = new BehaviorSubject<Product[]>([]);
 
 
   loadProducts(){
     return this.http.get(this.url + 'api/products').pipe(tap({
       next: res => { 
-        this.products = res as Product[];
+        this.productsSubject.next(res as Product[]);
         console.log('Response:', res); 
       },
       error: err => { 
@@ -29,6 +29,6 @@ export class ProductService {
   }
 
   getProducts(){
-    return this.products;
+    return this.productsSubject.asObservable();
   }
 }

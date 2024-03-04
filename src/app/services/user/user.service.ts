@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
 
@@ -9,29 +9,42 @@ import { User } from 'src/app/models/user';
 })
 export class UserService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) { 
+
+    this.userSubject = new BehaviorSubject<User | null>(null);
+  }
 
   url : string = 'http://localhost:3001/';
+
+  private userSubject: BehaviorSubject<User | null>;
 
 
   postUser(user : User){
     return this.http.post(this.url + 'api/users', user);
   }
 
-  getUser(){
+
+  getUserWithToken(){
     
     let token = localStorage.getItem('token');
     let headers = { 'Authorization' : 'Bearer ' + token };
 
     return this.http.get(this.url + 'api/users/getUserWithToken', { headers }).pipe(tap({
-      next: res => { console.log('Response:', res); },
-      error: err => { console.error('Error:', err); }
+      next: res => { 
+
+        this.userSubject.next(res as User);
+
+        console.log('Response get user w token:', res); 
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
     }));
   }
 
 
-  getUserInStorage(){
-    return localStorage.getItem('user');
+  getUser(){
+    return this.userSubject.asObservable();
   }
 
 
@@ -46,8 +59,15 @@ export class UserService {
     }
 
     return this.http.post(this.url + 'api/basket/addProductInBasket', body, { headers }).pipe(tap({
-      next: res => { console.log('Response:', res); },
-      error: err => { console.error('Error:', err); }
+      next: res => { 
+        console.log('Response add product :', res); 
+
+        // Recharger le user pour avoir les nouvelles données
+        this.getUserWithToken().subscribe();
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
     }));
   }
 }

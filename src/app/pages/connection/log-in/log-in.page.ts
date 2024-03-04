@@ -53,10 +53,9 @@ export class LogInPage implements OnInit {
 
         this.authService.setToken(res.token);
 
-        this.userService.getUser().subscribe((res : any) => {
+        this.userService.getUserWithToken().subscribe((res : any) => {
           console.log(res);
 
-          localStorage.setItem('user', JSON.stringify(res));
           this.router.navigate(['tabs/profile']);
         });
       }

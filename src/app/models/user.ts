@@ -2,10 +2,9 @@
 
 export class User{
 
-    // id: number = 0;
-
     admin = true;
 
+    _id: string = "";
     firstname: string = "";
     lastname: string = "";
     pseudo: string = "";
@@ -22,7 +21,10 @@ export class User{
         country: string,
     }
 
-    basket: number[] = [];
+    basket: {
+        productId: string,
+        quantity: number,
+    }[] = [];
     orders: number[] = [];
     
 }
