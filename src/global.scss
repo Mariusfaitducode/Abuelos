@@ -75,6 +75,14 @@
     justify-content: space-between;
 }
 
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 .product-list{
     max-width: 100%;
     display: flex;

@@ -21,3 +21,9 @@ export class Product{
         // this.updated_at = updated_at;
     }
 }
+
+export class OrderItem{
+    productId: string = '';
+    product: Product = new Product();
+    quantity: number = 0;
+}

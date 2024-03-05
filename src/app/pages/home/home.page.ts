@@ -19,9 +19,9 @@ export class HomePage {
 
   ngOnInit() {
 
-      this.productService.getProducts().subscribe(products => {
-        this.products = products;
-      });
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
 
   }
 

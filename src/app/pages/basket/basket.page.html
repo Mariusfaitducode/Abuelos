@@ -45,9 +45,47 @@
 
     <div class="section-title">Sélectionne tes produits</div>
 
-    <ion-card class="card-button">
-      <ion-card-title>+</ion-card-title>
-    </ion-card>
+    <div *ngIf="user">
+
+      <div *ngFor="let order of basket">
+      
+        <div class="flex-row">
+          <ion-card class="card-button">
+            <ion-card-title>{{order.product.name}}</ion-card-title>
+            <ion-card-subtitle>Type</ion-card-subtitle>
+
+          </ion-card>
+    
+          <ion-card class="card-button flex-row">
+
+            <div class="quantity-button">
+              <div>-</div>
+            </div>
+
+            <div class="flex-column">
+              <ion-card-title>{{order.quantity}}</ion-card-title>
+              <ion-card-subtitle>Total</ion-card-subtitle>
+            </div>
+
+            <div class="quantity-button">
+              <div>+</div>
+            </div>
+          </ion-card>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="flex-row">
+      <ion-card class="card-button">
+        <ion-card-title>+</ion-card-title>
+      </ion-card>
+  
+      <ion-button class="big-button">Payer</ion-button>
+    </div>
+    
 
     <!-- <ion-item>
       <ion-label>Quantité</ion-label>

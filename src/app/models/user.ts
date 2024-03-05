@@ -26,5 +26,4 @@ export class User{
         quantity: number,
     }[] = [];
     orders: number[] = [];
-    
 }

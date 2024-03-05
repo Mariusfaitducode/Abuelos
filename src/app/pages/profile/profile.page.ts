@@ -22,13 +22,13 @@ export class ProfilePage {
 
   ngOnInit(){
 
-    this.route.queryParams.subscribe(params =>{
+    this.userService.getUser().subscribe(user => {
+      this.user = user;
+    });
 
-      this.userService.getUser().subscribe(user => {
-        this.user = user;
-      });
-      console.log(this.user);
-    })
+    // this.route.queryParams.subscribe(params =>{
+    //   console.log(this.user);
+    // })
   }
 
   goToOrders(){
