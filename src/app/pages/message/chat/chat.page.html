@@ -21,13 +21,24 @@
     <div class="header">
 
       <ion-button fill="icon-only" (click)="goBackButton()">
-        <ion-icon color="primary" slot="icon-only" name="arrow-back"></ion-icon>
+        <!-- <ion-icon color="primary" slot="icon-only" name="arrow-back"></ion-icon> -->
+        <svg width="32" height="27" viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Arrow Left">
+          <path id="Vector" d="M23.5045 0C23.7759 0 24.0536 0.0905449 24.2619 0.266282C24.6785 0.617757 24.6785 1.1929 24.2619 1.54438L10.0039 13.5799L24.0536 25.4343C24.4702 25.7858 24.4702 26.361 24.0536 26.7125C23.6371 27.0639 22.9555 27.0639 22.5389 26.7125L7.73179 14.219C7.31523 13.8675 7.31523 13.2923 7.73179 12.9409L22.7472 0.266309C22.9555 0.0905713 23.2331 5.27344e-05 23.5045 5.27344e-05L23.5045 0Z" fill="#C95807"/>
+          </g>
+          </svg>
       </ion-button>
 
       <div class="section-title">Christine</div>  
 
       <ion-button fill="icon-only" (click)="goBackButton()">
-        <ion-icon color="primary" slot="icon-only" name="information-circle-outline"></ion-icon>
+        <!-- <ion-icon color="primary" slot="icon-only" name="information-circle-outline"></ion-icon> -->
+        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Vector">
+          <path id="Vector_2" d="M12.4583 12.4583L12.5153 12.4306C12.6934 12.3416 12.8932 12.3055 13.0912 12.3266C13.2892 12.3477 13.4769 12.4251 13.6323 12.5496C13.7876 12.6741 13.904 12.8405 13.9677 13.0291C14.0314 13.2178 14.0397 13.4207 13.9917 13.6139L13.0083 17.5528C12.9599 17.7461 12.968 17.9492 13.0315 18.138C13.0951 18.3269 13.2114 18.4936 13.3669 18.6183C13.5223 18.743 13.7102 18.8205 13.9083 18.8416C14.1065 18.8628 14.3065 18.8266 14.4847 18.7375L14.5417 18.7083M26 13.5C26 15.1415 25.6767 16.767 25.0485 18.2835C24.4203 19.8001 23.4996 21.1781 22.3388 22.3388C21.1781 23.4996 19.8001 24.4203 18.2835 25.0485C16.767 25.6767 15.1415 26 13.5 26C11.8585 26 10.233 25.6767 8.71646 25.0485C7.19989 24.4203 5.8219 23.4996 4.66116 22.3388C3.50043 21.1781 2.57969 19.8001 1.95151 18.2835C1.32332 16.767 1 15.1415 1 13.5C1 10.1848 2.31696 7.00537 4.66116 4.66117C7.00537 2.31696 10.1848 1 13.5 1C16.8152 1 19.9946 2.31696 22.3388 4.66117C24.683 7.00537 26 10.1848 26 13.5ZM13.5 8.29167H13.5111V8.30278H13.5V8.29167Z" stroke="#C95807" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          </svg>
+          
       </ion-button>
 
     </div>
@@ -49,9 +60,12 @@
   
   
       <div class="chat-box">
-        <textarea id="myTextarea" autosize  rows="1" class="chat-input"></textarea>
+        <textarea id="myTextarea" autosize  rows="1" class="chat-input" placeholder="New message"></textarea>
         <ion-button fill="icon-only">
-          <ion-icon color="primary" slot="icon-only" name="send-outline"></ion-icon>
+          <!-- <ion-icon color="primary" slot="icon-only" name="send-outline"></ion-icon> -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M21.8222 4.00411C22.6952 1.51011 20.3182 -0.547889 18.0162 0.131111L17.9752 0.144111L2.0352 5.60311C-0.738802 6.49311 -0.656802 10.3991 2.1572 11.2461L2.1852 11.2541L7.5332 12.6921L7.5672 12.7001C8.3842 12.8901 9.0122 13.5201 9.3152 14.4941L10.7412 19.8371L10.7422 19.8391C11.4892 22.6791 15.3932 22.6891 16.3722 20.0231L16.3802 20.0011L21.8222 4.00411ZM18.6002 2.04411C19.5332 1.78211 20.2002 2.58911 19.9342 3.34611L14.4902 19.3441C14.1282 20.3071 12.8842 20.1261 12.6752 19.3291L11.2412 13.9591L11.2312 13.9241C10.7712 12.4211 9.6872 11.1461 8.0362 10.7561L2.7202 9.32811C1.7302 9.01911 1.8102 7.77111 2.6502 7.50511L2.6722 7.49811L18.6002 2.04411Z" fill="#C95807"/>
+            </svg>
         </ion-button>
       </div>
 

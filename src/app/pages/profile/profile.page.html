@@ -1,31 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Profil
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Profil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
 
   <div class="padding-page" *ngIf="user !== null">
 
+    <div class="page-title">Profil</div>
+
+    <app-user-card [user]="user"></app-user-card>
+
     <div class="profile-content">
 
-      <img src="https://picsum.photos/150/150" alt="" class="pseudo-image">
+      <!-- <img src="https://picsum.photos/150/150" alt="" class="pseudo-image">
 
-      <ion-title>{{user.firstname}}</ion-title>
-      <div>{{user.lastname}}</div>
+      <div>
+        <ion-title>{{user.pseudo}}</ion-title>
+        <div>{{user.email}}</div>
+      </div> -->
+
 
     </div>
 
 
-    <div *ngIf="user.admin">
+    <div >
 
       <app-dashboard-card></app-dashboard-card>
     </div>

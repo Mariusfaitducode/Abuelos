@@ -25,5 +25,8 @@ export class User{
         productId: string,
         quantity: number,
     }[] = [];
+
     orders: number[] = [];
+
+    seller: boolean = false;
 }

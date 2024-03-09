@@ -9,6 +9,7 @@ import { CardProductComponent } from '../components/product/card-product/card-pr
 import { SellerRowComponent } from '../components/user/seller-row/seller-row.component';
 import { ContactRowComponent } from '../components/user/contact-row/contact-row.component';
 import { DashboardCardComponent } from '../components/user/dashboard-card/dashboard-card.component';
+import { UserCardComponent } from '../components/user/user-card/user-card.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { DashboardCardComponent } from '../components/user/dashboard-card/dashbo
     declarations: [
       CardProductComponent,
       SellerRowComponent,
+      UserCardComponent,
       ContactRowComponent,
       DashboardCardComponent,
       
@@ -27,6 +29,7 @@ import { DashboardCardComponent } from '../components/user/dashboard-card/dashbo
     exports:[
       CardProductComponent, 
       SellerRowComponent,
+      UserCardComponent,
       ContactRowComponent,
       DashboardCardComponent,
     ]

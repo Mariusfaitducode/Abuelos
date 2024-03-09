@@ -29,8 +29,15 @@
     <div>Vendeur</div>
 
     <ion-list class="contact-list">
-      <app-contact-row></app-contact-row>
-      <app-contact-row></app-contact-row>
+      <!-- <app-contact-row></app-contact-row> -->
+
+      <div *ngFor="let seller of sellers">
+
+        <app-user-card [user]="seller"></app-user-card>
+
+      </div>
+
+      <!-- <app-seller-row></app-seller-row> -->
     </ion-list>
 
     

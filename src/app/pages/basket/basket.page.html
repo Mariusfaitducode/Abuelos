@@ -47,6 +47,14 @@
 
     <div *ngIf="user">
 
+      <div class="flex-row">
+        <ion-card class="card-button">
+          <ion-card-title>+</ion-card-title>
+        </ion-card>
+    
+        <ion-button class="big-button">Payer</ion-button>
+      </div>
+
       <div *ngFor="let order of basket">
       
         <div class="flex-row">
@@ -78,13 +86,7 @@
 
     </div>
 
-    <div class="flex-row">
-      <ion-card class="card-button">
-        <ion-card-title>+</ion-card-title>
-      </ion-card>
-  
-      <ion-button class="big-button">Payer</ion-button>
-    </div>
+    
     
 
     <!-- <ion-item>

@@ -2,7 +2,7 @@
 
 .profile-content{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -13,4 +13,6 @@
     width: 33%;
     height: 33%;
     border-radius: 50%;
+
+    margin-right: 32px;
 }
