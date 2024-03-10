@@ -31,6 +31,7 @@
     "@fontsource/inter": "^5.0.16",
     "@fontsource/lora": "^5.0.13",
     "@ionic/angular": "^7.0.0",
+    "firebase": "^10.8.1",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

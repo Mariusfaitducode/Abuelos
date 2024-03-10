@@ -12,6 +12,7 @@ export class User{
     password: string = "";
     status: string = "test";
     phone: string = "test";
+    avatar: string = "";
 
     adress?: {
         street: string,

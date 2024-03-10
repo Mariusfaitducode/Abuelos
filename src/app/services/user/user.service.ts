@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
+import { FirebaseService } from '../firebase.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http : HttpClient) { 
+  constructor(
+    private http : HttpClient,
+    private firebaseService : FirebaseService) { 
 
     this.userSubject = new BehaviorSubject<User | null>(null);
   }
@@ -23,6 +26,9 @@ export class UserService {
     return this.http.post(this.url + 'api/users', user);
   }
 
+  getUser(){
+    return this.userSubject.asObservable();
+  }
 
   getUserWithToken(){
     
@@ -42,10 +48,53 @@ export class UserService {
     }));
   }
 
+  updateUser(user : User, file : File){
+    
+    
 
-  getUser(){
-    return this.userSubject.asObservable();
+
+    // verif avatar user
+      
+    return this.firebaseService.uploadAvatarImage(user, file).then(url => {
+
+        user.avatar = url;
+
+        console.log('URL:', url);
+        console.log('User:', user);
+
+        let token = localStorage.getItem('token');
+        let headers = { 'Authorization' : 'Bearer ' + token };
+        
+        this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
+          next: res => { 
+            console.log('Response update user:', res); 
+            this.getUserWithToken().subscribe();
+          },
+          error: err => { 
+            console.error('Error:', err); 
+          }
+        })).subscribe();
+      });
+    
   }
+
+  updateUserWithoutFile(user : User){
+      
+      let token = localStorage.getItem('token');
+      let headers = { 'Authorization' : 'Bearer ' + token };
+  
+      return this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
+        next: res => { 
+          console.log('Response update user:', res); 
+          this.getUserWithToken().subscribe();
+        },
+        error: err => { 
+          console.error('Error:', err); 
+        }
+      }));
+  }
+
+  
 
 
   addProductInBasket(product : Product){
