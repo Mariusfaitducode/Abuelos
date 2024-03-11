@@ -2,17 +2,29 @@
 
 
 .dashboard-card{
-    // background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    // position: relative;
-    // overflow: hidden;
-    // transition: all 0.3s ease-in-out;
-    // cursor: pointer;
-    // &:hover{
-    //     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-    // }
     
+
+    padding: 16px;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+
+    border-radius: 32px;
+
+    background-color: var(--ion-color-secondary-shade);
+
+    color: var(--black);
+    
+}
+
+.info-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-top: 12px;
+}
+
+.info-row svg{
+    margin-right: 12px;
 }

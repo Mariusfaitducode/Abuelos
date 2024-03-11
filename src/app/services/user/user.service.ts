@@ -48,39 +48,9 @@ export class UserService {
     }));
   }
 
-  updateUser(user : User, file : File){
-    
-    
+  updateUser(user : User){
 
-
-    // verif avatar user
-      
-    return this.firebaseService.uploadAvatarImage(user, file).then(url => {
-
-        user.avatar = url;
-
-        console.log('URL:', url);
-        console.log('User:', user);
-
-        let token = localStorage.getItem('token');
-        let headers = { 'Authorization' : 'Bearer ' + token };
-        
-        this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
-          next: res => { 
-            console.log('Response update user:', res); 
-            this.getUserWithToken().subscribe();
-          },
-          error: err => { 
-            console.error('Error:', err); 
-          }
-        })).subscribe();
-      });
-    
-  }
-
-  updateUserWithoutFile(user : User){
-      
-      let token = localStorage.getItem('token');
+    let token = localStorage.getItem('token');
       let headers = { 'Authorization' : 'Bearer ' + token };
   
       return this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
@@ -92,6 +62,11 @@ export class UserService {
           console.error('Error:', err); 
         }
       }));
+  }
+
+  updateUserWithoutFile(user : User){
+      
+      
   }
 
   
