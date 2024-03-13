@@ -32,7 +32,7 @@
 // Paddings
 
 .padding-page{
-    padding: 32px 16px;
+    padding: 32px 32px;
 }
 
 
@@ -49,7 +49,7 @@
     font-size: 28px;
     font-weight: 800;
 
-    padding-left: 16px;
+    // padding-left: 16px;
     // font-style: normal;
     // line-height: 40px;
     // letter-spacing: 0.005px; 
@@ -59,7 +59,7 @@
     font-size: 24px;
     font-weight: 800;
 
-    padding-left: 16px;
+    // padding-left: 16px;
 
     // font-style: normal;
     // line-height: 25px;
@@ -126,6 +126,12 @@
 
 
 // Cards
+
+// ion-card{
+//     margin : 0px !important;
+// }
+
+
 
 .card-title{
     font-size: 20px;

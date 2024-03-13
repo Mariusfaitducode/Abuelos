@@ -39,4 +39,8 @@ export class ProductPage implements OnInit {
       console.log('Response:', res);
     });
   }
+
+  goBack(){
+    window.history.back();
+  }
 }
