@@ -16,6 +16,8 @@ export class Product{
     stock: number = 0;
     season : string = '';
 
+    next_harvest : Date = new Date();
+    limit_date : Date = new Date();
 
     // created_at: string;
     // updated_at: string;

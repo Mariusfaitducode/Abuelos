@@ -43,4 +43,11 @@ export class ProductPage implements OnInit {
   goBack(){
     window.history.back();
   }
+
+  dayLeft(date : Date){
+    let today = new Date();
+    let limitDate = new Date(date);
+    let diff = limitDate.getTime() - today.getTime();
+    return Math.ceil(diff / (1000 * 3600 * 24));
+  }
 }
