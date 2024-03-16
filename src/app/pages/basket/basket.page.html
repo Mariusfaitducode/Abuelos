@@ -57,7 +57,7 @@
 
       <div *ngFor="let order of basket">
       
-        <div class="flex-row">
+        <div class="flex-row" *ngIf="order.product">
           <ion-card class="card-button">
             <ion-card-title>{{order.product.name}}</ion-card-title>
             <ion-card-subtitle>Type</ion-card-subtitle>
@@ -66,17 +66,23 @@
     
           <ion-card class="card-button flex-row">
 
-            <div class="quantity-button">
-              <div>-</div>
+            <div class="quantity-button" (click)="removeQuantity(order)">
+              <svg width="13" height="14" viewBox="0 0 11 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.10298 0.971235V4.31818H0.68679V0.971235H9.10298Z" fill="#C95807"/>
+                </svg>
             </div>
 
             <div class="flex-column">
               <ion-card-title>{{order.quantity}}</ion-card-title>
-              <ion-card-subtitle>Total</ion-card-subtitle>
+              <!-- <ion-card-subtitle>{{order.quantity * order.product.weight}}kg - {{order.quantity * order.product.price}}€</ion-card-subtitle> -->
+              <ion-card-subtitle>{{order.quantity * order.product.price}}€</ion-card-subtitle>
+
             </div>
 
-            <div class="quantity-button">
-              <div>+</div>
+            <div class="quantity-button" (click)="addQuantity(order)">
+              <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.79155 13.0945V0.239347H8.36932V13.0945H4.79155ZM0.148438 8.46023V4.88246H13.0036V8.46023H0.148438Z" fill="#C95807"/>
+                </svg>
             </div>
           </ion-card>
         </div>

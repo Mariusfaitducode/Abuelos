@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class EditProfilePage implements OnInit {
 
   constructor(
-    private router : Router,
+    private route : Router,
     private userService : UserService,
     private firebaseService : FirebaseService
   ) { }
@@ -30,6 +30,10 @@ export class EditProfilePage implements OnInit {
     });
   }
 
+
+  goBackButton(){
+    this.route.navigate(['tabs/profile']);
+  }
 
   fileUpload(event : any){
 
@@ -50,7 +54,7 @@ export class EditProfilePage implements OnInit {
           this.user!.avatar = url;
           this.userService.updateUser(this.user!).subscribe(res => {
             // console.log(res);
-            this.router.navigate(['tabs/profile']);
+            this.route.navigate(['tabs/profile']);
           });
         });
 
@@ -63,7 +67,7 @@ export class EditProfilePage implements OnInit {
       else {
         this.userService.updateUser(this.user).subscribe(res => {
           // console.log(res);
-          this.router.navigate(['tabs/profile']);
+          this.route.navigate(['tabs/profile']);
         });
       }
       

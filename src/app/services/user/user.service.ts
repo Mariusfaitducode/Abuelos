@@ -68,30 +68,4 @@ export class UserService {
       
       
   }
-
-  
-
-
-  addProductInBasket(product : Product){
-    
-    let token = localStorage.getItem('token');
-    let headers = { 'Authorization' : 'Bearer ' + token };
-
-    let body = {
-      productId : product._id,
-      quantity : 1
-    }
-
-    return this.http.post(this.url + 'api/basket/addProductInBasket', body, { headers }).pipe(tap({
-      next: res => { 
-        console.log('Response add product :', res); 
-
-        // Recharger le user pour avoir les nouvelles données
-        this.getUserWithToken().subscribe();
-      },
-      error: err => { 
-        console.error('Error:', err); 
-      }
-    }));
-  }
 }

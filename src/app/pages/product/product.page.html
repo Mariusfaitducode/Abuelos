@@ -9,12 +9,12 @@
       
   </div>
 
-  <img src="assets/abuelos_img.jpg" alt="" class="product-image">
+  <img *ngIf="product" src="assets/abuelos_img.jpg" alt="" class="product-image">
 
 
 
 
-  <div class="padding-page">
+  <div class="padding-page" *ngIf="product">
 
     <div class="image-legend">Campos del Abuelo Juan</div>
 
@@ -81,10 +81,38 @@
       </div>
 
 
+      <div class="select-product">
+
+        <div class="flex-row">
+          <div class="quantity-button" (click)="removeQuantity()">
+            <svg width="13" height="14" viewBox="0 0 11 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.10298 0.971235V4.31818H0.68679V0.971235H9.10298Z" fill="#C95807"/>
+              </svg>
+              
+          </div>
+  
+          <div class="quantity-info" *ngIf="order">
+            {{order.quantity}}
+          </div>
+  
+          <div class="quantity-button" (click)="addQuantity()">
+            <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.79155 13.0945V0.239347H8.36932V13.0945H4.79155ZM0.148438 8.46023V4.88246H13.0036V8.46023H0.148438Z" fill="#C95807"/>
+              </svg>
+          </div>
+        </div>
+
+        <div class="weight-product">
+          Cageot de ({{product.weight}}kg) ({{product.price}}€/kg)
+        </div>
+        
+      </div>
+
+
 
     </ion-list>
 
-    <div class="product-section">
+    <!-- <div class="product-section">
       <div>Saison : hiver</div>
       <div>Prochaine récolte : Octobre</div>
       <div>Quantité restante : 1200</div>
@@ -97,32 +125,15 @@
         
         <ion-button  (click)="addProductInBasket()">Ajouter au panier</ion-button>
       </div>
-
-      <!-- <ion-item>
-        <ion-label>Saison : hiver</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Prochaine récolte : Octobre</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Quantité restante : 1200</ion-label>
-      </ion-item> -->
-    </div>
-
-    <!-- <ion-title>Nos champs</ion-title>
-
-    <div class="product-section">
-      <div class="flex-row">
-        <div>Nom champ</div>
-        <img src="https://picsum.photos/200/150" alt="">
-      </div>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, recusandae!</p>
-    </div>
-
-    <ion-title>Nos variétés</ion-title>
-
-    <div class="product-section">
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quis mollitia praesentium atque quas harum necessitatibus, modi ex perferendis! Laborum magni officiis dolores qui excepturi deserunt quod sit a modi!</div>
     </div> -->
+  </div>
+
+  <div class="navbar" *ngIf="product && order">
+    <div class="total-price">
+      {{product.price * order.quantity}}€
+    </div>
+
+    <ion-button class="middle-button" (click)="addProductInBasket()">Ajouter au panier</ion-button>
+
   </div>
 </ion-content>

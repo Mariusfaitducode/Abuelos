@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/models/product';
+import { OrderItem, Product } from 'src/app/models/product';
+import { User } from 'src/app/models/user';
+import { BasketService } from 'src/app/services/product/basket.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -14,10 +16,15 @@ export class ProductPage implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private productService : ProductService,
-    private userService : UserService) { }
+    private userService : UserService,
+    private basketService : BasketService) { }
 
 
-  product : Product = new Product();
+  product : Product | null = null;
+
+  user : User | null = null;
+
+  order : OrderItem | null = null;
 
   
   ngOnInit() {
@@ -28,14 +35,52 @@ export class ProductPage implements OnInit {
         this.productService.getProducts().subscribe(products => {
           if (products.length > 0){
             this.product = products.find((p : any) => p._id == params.id)!;
+
+            this.order = {
+              productId : this.product!._id,
+              quantity : 0
+            }
+
+            // this.userService.getUser().subscribe(user => {
+            //   this.user = user;
+        
+            //   if (this.user){
+            //     // this.order = this.user.basket.find(item => item.productId === this.product!._id) || null;
+
+            //     // console.log('Order:', this.order);
+
+            //     if (this.order == null){
+                    // this.order = {
+                    //   productId : this.product!._id,
+                    //   quantity : 0
+                    // } 
+            //     }
+            //   }
+            // });
           }
         });
       }
     });
   }
 
+
+  addQuantity(){
+    if (this.order){
+      this.order.quantity++;
+    }
+  }
+
+  removeQuantity(){
+    if (this.order){
+      if (this.order.quantity > 0){
+        this.order.quantity--;
+      }
+    }
+  }
+
   addProductInBasket(){
-    this.userService.addProductInBasket(this.product).subscribe((res : any) => {
+
+    this.basketService.addProductInBasket(this.product!, this.order!.quantity).subscribe((res : any) => {
       console.log('Response:', res);
     });
   }

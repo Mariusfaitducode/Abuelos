@@ -19,7 +19,7 @@ export class UserCardComponent  implements OnInit {
   ngOnInit() {}
 
   goToEdit(){
-    this.router.navigate(['/tabs/profile/edit-profile']);
+    this.router.navigate(['profile/edit-profile']);
   }
 
 }

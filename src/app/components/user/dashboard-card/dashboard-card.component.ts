@@ -13,7 +13,7 @@ export class DashboardCardComponent  implements OnInit {
   ngOnInit() {}
 
   goToDashboard(){
-    this.router.navigate(['tabs/profile/dashboard']);
+    this.router.navigate(['profile/dashboard']);
 
   }
 

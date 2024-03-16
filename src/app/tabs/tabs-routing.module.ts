@@ -27,18 +27,15 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () => import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
-      {
-        path: 'product',
-        loadChildren: () => import('../pages/product/product.module').then( m => m.ProductPageModule)
-      },
-      {
-        path: 'product/:id',
-        loadChildren: () => import('../pages/product/product.module').then( m => m.ProductPageModule)
-      },
       // {
-      //   path: 'dashboard',
-      //   loadChildren: () => import('../pages/profile/product.module').then( m => m.ProductPageModule)
+      //   path: 'product',
+      //   loadChildren: () => import('../pages/product/product.module').then( m => m.ProductPageModule)
       // },
+      // {
+      //   path: 'product/:id',
+      //   loadChildren: () => import('../pages/product/product.module').then( m => m.ProductPageModule)
+      // },
+      
       
       {
         path: '',

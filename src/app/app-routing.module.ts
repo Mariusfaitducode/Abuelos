@@ -18,13 +18,21 @@ const routes: Routes = [
     path: 'log-in',
     loadChildren: () => import('./pages/connection/log-in/log-in.module').then( m => m.LogInPageModule)
   },
+  {
+    path: 'product',
+    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
+  },
+  {
+    path: 'product/:id',
+    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  },
   // {
-  //   path: 'search',
-  //   loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
-  // },
-  // {
-  //   path: 'product',
-  //   loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
+  //   path: 'dashboard',
+  //   loadChildren: () => import('./pages/profile/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   // }
 ];
 @NgModule({

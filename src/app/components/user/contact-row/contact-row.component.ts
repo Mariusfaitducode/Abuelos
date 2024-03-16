@@ -13,7 +13,7 @@ export class ContactRowComponent  implements OnInit {
   ngOnInit() {}
 
   goToChat(){
-    this.router.navigate(['tabs/message/chat']);
+    this.router.navigate(['message/chat']);
   }
 
 }

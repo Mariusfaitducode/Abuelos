@@ -1,8 +1,20 @@
 
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-direction: flex-start;
+    align-items: center;
 
-.page-title{
     margin-bottom: 32px;
+    
 }
+
+.header ion-button {
+    --padding-start: 0;
+    --padding-right: 32px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
 
 .pseudo-image{
     display: flex;
@@ -16,3 +28,7 @@
     // height: 33%;
     border-radius: 50%;
 }
+
+ion-button {
+    --background : none;
+  }

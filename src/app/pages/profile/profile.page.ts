@@ -32,11 +32,11 @@ export class ProfilePage {
   }
 
   goToOrders(){
-    this.router.navigate(['/tabs/profile/orders']);
+    this.router.navigate(['/profile/orders']);
   }
 
   goToSettings(){
-    this.router.navigate(['/tabs/profile/settings']);
+    this.router.navigate(['/profile/settings']);
   }
 
   disconnect(){

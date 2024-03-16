@@ -34,6 +34,6 @@ export class Product{
 
 export class OrderItem{
     productId: string = '';
-    product: Product = new Product();
+    product?: Product = new Product();
     quantity: number = 0;
 }

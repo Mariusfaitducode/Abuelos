@@ -99,6 +99,19 @@
 
 // Buttons
 
+.middle-button{
+    text-transform: none;
+    --background: var(--ion-color-primary);
+    height: 50px;
+
+    --border-radius: 32px;
+
+    color: var(--ion-color-primary-contrast);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800; 
+}
+
 .big-button{
     text-transform: none;
     --background: var(--ion-color-primary);
