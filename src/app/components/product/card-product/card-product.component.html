@@ -2,7 +2,7 @@
 
 <ion-card class="product-card" (click)="goToProductPage()" >
 
-  <img src="https://picsum.photos/200/150" alt="">
+  <img class="product-image" [src]="product.image" alt="">
   
   <ion-card-title>{{product.name}}</ion-card-title>
 

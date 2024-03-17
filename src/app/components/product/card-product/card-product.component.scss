@@ -3,4 +3,12 @@
 .product-card{
     width: 200px;
     height: 200px;
+    border-radius: 16px;
+}
+
+.product-image{
+    width: 200px;
+    height: 150px;
+
+    object-fit: cover;
 }

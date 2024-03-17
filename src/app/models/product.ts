@@ -1,23 +1,29 @@
 
 
 export class Product{
-    _id: string = '';
+
+    uid: string = '';
+
     name: string = '';
+    variety: string = '';
+    origin: string = '';
+    season : string = '';
+    field: string = '';
+
     description: string = '';
+
     price: number = 0;
 
-    variety: string = '';
-
     labels: string[] = [];
-    origin: string = '';
 
     weight: number = 0;
     promotion: number = 0;
     stock: number = 0;
-    season : string = '';
 
     next_harvest : Date = new Date();
     limit_date : Date = new Date();
+
+    image: string = '';
 
     // created_at: string;
     // updated_at: string;

@@ -45,4 +45,8 @@ export class ProfilePage {
     this.router.navigate(['/log-in']);
   }
 
+  goToAddProduct(){
+    this.router.navigate(['product/add-product']);
+  }
+
 }

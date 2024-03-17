@@ -34,7 +34,7 @@ export class BasketPage {
   
         if (this.user){
           this.basket = this.user.basket.map(item => {
-            let product = this.products.find(product => product._id === item.productId);
+            let product = this.products.find(product => product.uid === item.productId);
             return {
               productId: item.productId,
               product: product ? product : new Product(),

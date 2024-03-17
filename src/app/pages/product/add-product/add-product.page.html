@@ -1,0 +1,98 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="padding-page">
+
+    <div class="header">
+      <ion-button fill="icon-only" (click)="goBackButton()">
+        <!-- <ion-icon color="primary" slot="icon-only" name="arrow-back"></ion-icon> -->
+        <svg width="32" height="27" viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Arrow Left">
+          <path id="Vector" d="M23.5045 0C23.7759 0 24.0536 0.0905449 24.2619 0.266282C24.6785 0.617757 24.6785 1.1929 24.2619 1.54438L10.0039 13.5799L24.0536 25.4343C24.4702 25.7858 24.4702 26.361 24.0536 26.7125C23.6371 27.0639 22.9555 27.0639 22.5389 26.7125L7.73179 14.219C7.31523 13.8675 7.31523 13.2923 7.73179 12.9409L22.7472 0.266309C22.9555 0.0905713 23.2331 5.27344e-05 23.5045 5.27344e-05L23.5045 0Z" fill="#C95807"/>
+          </g>
+          </svg>
+      </ion-button>
+  
+      <div class="page-title">Ajouter produit</div>
+    </div>
+
+    
+
+    <!-- <app-user-card [user]="user"></app-user-card> -->
+
+    <div class="product-image">
+
+      <img *ngIf="product.image" [src]="product.image" width="100px" height="100px" alt="" >
+
+      <ion-item>
+        <ion-label>Image</ion-label>
+
+        <input type="file" accept="image/*" (change)="fileUpload($event)" />
+      </ion-item>
+      
+    </div>
+
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" 
+        labelPlacement="floating" label="Nom" 
+        [(ngModel)]="product.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" 
+        labelPlacement="floating" label="Variété" 
+        [(ngModel)]="product.variety"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" 
+        labelPlacement="floating" label="Origine" 
+        [(ngModel)]="product.origin"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input type="text" 
+        labelPlacement="floating" label="Saison" 
+        [(ngModel)]="product.season"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" 
+        labelPlacement="floating" label="Champs" 
+        [(ngModel)]="product.field"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea type="text" 
+        labelPlacement="floating" label="Description" 
+        [(ngModel)]="product.description"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" 
+        labelPlacement="floating" label="Price" 
+        [(ngModel)]="product.price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="date" 
+        labelPlacement="floating" label="Prochaine récolte" 
+        [(ngModel)]="product.next_harvest"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="date" 
+        labelPlacement="floating" label="Date limite" 
+        [(ngModel)]="product.limit_date"></ion-input>
+      </ion-item>
+      
+    </ion-list>
+
+    
+
+
+    <ion-button [disabled]="!canAddProduct()" (click)="addProduct()" expand="block" class="big-button">Modifier</ion-button>
+
+  </div>
+</ion-content>

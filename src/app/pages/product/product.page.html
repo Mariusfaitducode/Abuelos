@@ -9,9 +9,7 @@
       
   </div>
 
-  <img *ngIf="product" src="assets/abuelos_img.jpg" alt="" class="product-image">
-
-
+  <img *ngIf="product" [src]="product.image" alt="" class="product-image">
 
 
   <div class="padding-page" *ngIf="product">
@@ -111,6 +109,11 @@
 
 
     </ion-list>
+
+    <div (click)="goToModifyProduct()" class="disconnect-button">
+      <!-- <ion-icon name="log-out-outline" slot="start"></ion-icon> -->
+      <ion-label>Modifier produit</ion-label>
+    </div>
 
     <!-- <div class="product-section">
       <div>Saison : hiver</div>

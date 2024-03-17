@@ -25,7 +25,7 @@ export class BasketService {
     let headers = { 'Authorization' : 'Bearer ' + token };
 
     let body = {
-      productId : product._id,
+      productId : product.uid,
       quantity : quantity
     }
 
@@ -49,7 +49,7 @@ export class BasketService {
     let headers = { 'Authorization' : 'Bearer ' + token };
 
     let body = {
-      productId : product._id,
+      productId : product.uid,
       quantity : quantity
     }
 

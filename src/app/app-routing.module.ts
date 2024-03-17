@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
   },
+  {
+    path: 'product/add-product/:id',
+    loadChildren: () => import('./pages/product/add-product/add-product.module').then( m => m.AddProductPageModule)
+  }
   // {
   //   path: 'dashboard',
   //   loadChildren: () => import('./pages/profile/dashboard/dashboard.module').then( m => m.DashboardPageModule)

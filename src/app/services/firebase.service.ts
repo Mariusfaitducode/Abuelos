@@ -7,6 +7,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPas
 import { doc, collection, getFirestore, getDoc, setDoc } from 'firebase/firestore';
 
 import { User } from '../models/user';
+import { Product } from '../models/product';
 
 
 @Injectable({
@@ -143,6 +144,25 @@ export class FirebaseService {
       throw error;
     }
   }
+
+
+  async uploadProductImage(product: Product, file: File): Promise<string> {
+
+    console.log('UPLOAD IMAGE')
+
+    const imageId = Math.random().toString(36).substring(2);
+
+    const storageRef = ref(this.storage, `/products/${product.uid}/images/${imageId}`);
+    try {
+      const snapshot = await uploadBytes(storageRef, file);
+      return getDownloadURL(snapshot.ref);
+    } 
+    catch (error) {
+      console.error("Erreur de téléversement : ", error);
+      throw error;
+    }
+  }
+
 
   // Méthode pour récupérer l'URL d'une image téléversée
   async getImageUrl(fileName: string): Promise<string> {

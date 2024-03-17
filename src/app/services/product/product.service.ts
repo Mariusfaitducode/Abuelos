@@ -28,6 +28,18 @@ export class ProductService {
     }));
   }
 
+  addProduct(product : Product){
+    return this.http.post(this.url + 'api/products', product).pipe(tap({
+      next: res => { 
+        console.log('Response:', res); 
+        this.loadProducts().subscribe();
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
+    }));
+  }
+
   getProducts(){
     return this.productsSubject.asObservable();
   }

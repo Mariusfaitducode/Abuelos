@@ -29,5 +29,6 @@ export class User{
 
     orders: number[] = [];
 
-    seller: boolean = false;
+    // seller: boolean = false;
+    role: string = "user";
 }

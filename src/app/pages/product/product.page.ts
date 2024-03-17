@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderItem, Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
 import { BasketService } from 'src/app/services/product/basket.service';
@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class ProductPage implements OnInit {
 
   constructor(
+    private router : Router,
     private route : ActivatedRoute,
     private productService : ProductService,
     private userService : UserService,
@@ -34,10 +35,10 @@ export class ProductPage implements OnInit {
       if (params.id){
         this.productService.getProducts().subscribe(products => {
           if (products.length > 0){
-            this.product = products.find((p : any) => p._id == params.id)!;
+            this.product = products.find((p : Product) => p.uid == params.id)!;
 
             this.order = {
-              productId : this.product!._id,
+              productId : this.product!.uid,
               quantity : 0
             }
 
@@ -94,5 +95,9 @@ export class ProductPage implements OnInit {
     let limitDate = new Date(date);
     let diff = limitDate.getTime() - today.getTime();
     return Math.ceil(diff / (1000 * 3600 * 24));
+  }
+
+  goToModifyProduct(){
+    this.router.navigate(['product/add-product/' + this.product!.uid]);
   }
 }
