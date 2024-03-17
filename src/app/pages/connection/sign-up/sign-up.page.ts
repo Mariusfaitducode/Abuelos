@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -15,9 +16,12 @@ export class SignUpPage implements OnInit {
   constructor(
     private router : Router,
     private authService : AuthService,
-    private userService : UserService) { }
+    private userService : UserService,
+    private firebaseService : FirebaseService) { }
 
   newUser : User = new User();
+
+  password : string = "";
 
   passwordConfirmation : string = "";
 
@@ -28,30 +32,39 @@ export class SignUpPage implements OnInit {
 
   
   validForm(){
-    return this.newUser.firstname != "" && this.newUser.lastname != "" && this.newUser.pseudo != "" && this.newUser.email != "" && this.newUser.password != "";
+    return this.newUser.firstname != "" && this.newUser.lastname != "" && this.newUser.pseudo != "" && this.newUser.email != "" && this.password != "";
   }
   
   validPassword(){
-    return this.newUser.password.length >= 6;
+    return this.password.length >= 6;
   }
 
   verifyPasswordConfirmation(){
-    return this.newUser.password == this.passwordConfirmation;
+    return this.password == this.passwordConfirmation;
   }
 
 
   signUp(){
     this.errorMessage = '';
-    this.authService.signUp(this.newUser).subscribe({
-      next: (res : any) => {
-        console.log(res);
+    // this.authService.signUp(this.newUser).subscribe({
+    //   next: (res : any) => {
+    //     console.log(res);
         
-        this.router.navigate(['/log-in']);
-      },
-      error: (res : HttpErrorResponse) => {
-        console.log(res);
-        this.errorMessage = res.error.message;
-      }
+    //     this.router.navigate(['/log-in']);
+    //   },
+    //   error: (res : HttpErrorResponse) => {
+    //     console.log(res);
+    //     this.errorMessage = res.error.message;
+    //   }
+    // });
+
+    this.firebaseService.signUpWithEmail(this.newUser, this.password)
+    .then((res : any) => {
+      console.log(res);
+      this.router.navigate(['/log-in']);
+    }).catch((error : any) => {
+      console.log(error);
+      this.errorMessage = error.message;
     });
   }
 

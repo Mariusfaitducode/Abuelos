@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthErrorCodes } from 'firebase/auth';
 import { User } from 'src/app/models/user';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -14,9 +16,14 @@ export class LogInPage implements OnInit {
   constructor(
     private router : Router,
     private authService : AuthService,
-    private userService : UserService) { }
+    private userService : UserService,
+    private firebaseService : FirebaseService) { }
 
   newUser : User = new User();
+
+  password : string = "";
+
+  errorMessage : string = "";
 
 
   ngOnInit() {
@@ -38,27 +45,55 @@ export class LogInPage implements OnInit {
 
 
   validForm(){
-    return this.newUser.email != "" && this.newUser.password != "";
+    return this.newUser.email != "" && this.password != "";
   }
 
-  logIn(){
+  loginWithEmail(){
     console.log(this.newUser);
   
-    this.authService.logIn(this.newUser).subscribe((res : any) => {
-      if (res.error){
-        console.log(res.error);
-      } 
-      else {
+    // this.authService.logIn(this.newUser).subscribe((res : any) => {
+    //   if (res.error){
+    //     console.log(res.error);
+    //   } 
+    //   else {
+    //     console.log(res);
+
+    //     this.authService.setToken(res.token);
+
+    //     this.userService.getUserWithToken().subscribe((res : any) => {
+    //       console.log(res);
+
+    //       this.router.navigate(['tabs/profile']);
+    //     });
+    //   }
+    // });
+
+    this.firebaseService.loginWithEmail(this.newUser, this.password)
+    .then((res : any) => {
+
+      this.userService.getUserWithToken().subscribe((res : any) => {
         console.log(res);
 
-        this.authService.setToken(res.token);
+        this.router.navigate(['tabs/profile']);
+      });
+    }).catch((error : any) => {
+      console.log(error);
+      this.errorMessage = error.message;
+    });
+  }
 
-        this.userService.getUserWithToken().subscribe((res : any) => {
-          console.log(res);
+  loginWithGoogle(){
+    this.firebaseService.loginWithGoogle()
+    .then((res : any) => {
 
-          this.router.navigate(['tabs/profile']);
-        });
-      }
+      this.userService.getUserWithToken().subscribe((res : any) => {
+        console.log(res);
+
+        this.router.navigate(['tabs/profile']);
+      });
+    }).catch((error : any) => {
+      console.log(error);
+      this.errorMessage = error.message;
     });
   }
 

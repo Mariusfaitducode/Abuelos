@@ -16,11 +16,16 @@
       <ion-item>
         <ion-input type="password" 
         label="Mot de passe" labelPlacement="floating" aria-label="Mot de passe" 
-        [(ngModel)]="newUser.password"></ion-input>
+        [(ngModel)]="password"></ion-input>
       </ion-item>
     </ion-list>
 
-    <ion-button expand="block" class="big-button" [disabled]="!validForm()" (click)="logIn()">Se connecter</ion-button>
+    <ion-text color="danger" *ngIf="errorMessage">{{errorMessage}}</ion-text>
+
+    <ion-button expand="block" class="big-button" (click)="loginWithGoogle()">Se connecter avec Google</ion-button>
+
+
+    <ion-button expand="block" class="big-button" [disabled]="!validForm()" (click)="loginWithEmail()">Se connecter</ion-button>
 
     <ion-row>
       <ion-col>

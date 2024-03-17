@@ -14,37 +14,55 @@
     </div>
     
     
+    <ion-button *ngIf="!user.admin" expand="block" class="big-button">Devenir vendeur</ion-button>
+
 
 
     <ion-list>
 
-      <ion-item (click)="goToOrders()">
-        <ion-icon name="cart-outline" slot="start"></ion-icon>
-        <ion-label>Commandes</ion-label>
-      </ion-item>
+      
+
+      <div (click)="goToSettings()" class="list-tree">
+
+        <div (click)="goToOrders()" class="menu-header">
+          <ion-icon name="cart-outline" slot="start"></ion-icon>
+          <ion-label>Transactions</ion-label>
+        </div>
+        
+
+        <ion-list class="sub-list">
+          <div class="menu-link">
+            <ion-label>Historique</ion-label>
+          </div>
+          <div class="menu-link">
+            <ion-label>Moyen de paiement</ion-label>
+          </div>
+        </ion-list>
+          
+      </div>
 
 
       <div (click)="goToSettings()" class="list-tree">
 
-        <ion-item>
+        <div class="menu-header">
           <ion-icon name="settings-outline" slot="start"></ion-icon>
           <ion-label>Paramètres</ion-label>
-        </ion-item>
+        </div>
         
 
         <ion-list class="sub-list">
-          <ion-item>
+          <div class="menu-link">
             <ion-label>Informations personnelles</ion-label>
-          </ion-item>
-          <ion-item>
+          </div>
+          <div class="menu-link">
             <ion-label>Moyen de paiement</ion-label>
-          </ion-item>
-          <ion-item>
+          </div>
+          <div class="menu-link">
             <ion-label>Mot de passe</ion-label>
-          </ion-item>
-          <ion-item>
+          </div>
+          <div class="menu-link">
             <ion-label>Notifications</ion-label>
-          </ion-item>
+          </div>
         </ion-list>
       </div>
   
@@ -59,27 +77,30 @@
         <ion-icon name="heart-outline" slot="start"></ion-icon>
         <ion-label>Mes favoris</ion-label>
       </ion-item> -->
+      <div (click)="goToSettings()" class="list-tree">
+        <div class="menu-header">
+          <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+          <ion-label>Aide</ion-label>
+        </div>
 
-      <ion-item>
-        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
-        <ion-label>Centre d'aide / Contact</ion-label>
-      </ion-item>
-
-      <ion-list>
-        <ion-item>
-          <ion-label>Informations personnelles</ion-label>
-        </ion-item>
-      </ion-list>
-
+        <ion-list class="sub-list">
+          <div class="menu-link">
+            <ion-label>Centre d'aide / Contact</ion-label>
+          </div>
+          <div class="menu-link">
+            <ion-label>Moyen de paiement</ion-label>
+          </div>
+          
+        </ion-list>
+      </div>
       
 
-      <ion-item (click)="disconnect()">
-        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      <div (click)="disconnect()" class="disconnect-button">
+        <!-- <ion-icon name="log-out-outline" slot="start"></ion-icon> -->
         <ion-label>Déconnexion</ion-label>
-      </ion-item>
+      </div>
     </ion-list>
 
-    <ion-button *ngIf="!user.admin" expand="block" class="big-button">Devenir vendeur</ion-button>
 
   </div>
 

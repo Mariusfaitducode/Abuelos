@@ -4,12 +4,12 @@ export class User{
 
     admin = true;
 
-    _id: string = "";
+    uid: string = "";
     firstname: string = "";
     lastname: string = "";
     pseudo: string = "";
     email: string = "";
-    password: string = "";
+    // password: string = "";
     status: string = "test";
     phone: string = "test";
     avatar: string = "";
