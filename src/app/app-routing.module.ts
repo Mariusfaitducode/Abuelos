@@ -6,10 +6,23 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  // {
+  //   path: 'message',
+  //   loadChildren: () => import('./pages/message/message.module').then( m => m.MessagePageModule)
+  // },
   {
-    path: 'message',
-    loadChildren: () => import('./pages/message/message.module').then( m => m.MessagePageModule)
+    path: 'chat',
+    loadChildren: () => import('./pages/message/chat/chat.module').then( m => m.ChatPageModule)
   },
+  {
+    path: 'chat/:idUser',
+    loadChildren: () => import('./pages/message/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'chat/:idConversation/:idUser',
+    loadChildren: () => import('./pages/message/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  
   {
     path: 'sign-up',
     loadChildren: () => import('./pages/connection/sign-up/sign-up.module').then( m => m.SignUpPageModule)

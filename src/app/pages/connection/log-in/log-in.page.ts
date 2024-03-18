@@ -68,7 +68,7 @@ export class LogInPage implements OnInit {
     //   }
     // });
 
-    this.firebaseService.loginWithEmail(this.newUser, this.password)
+    this.authService.loginWithEmail(this.newUser, this.password)
     .then((res : any) => {
 
       this.userService.getUserWithToken().subscribe((res : any) => {
@@ -83,7 +83,7 @@ export class LogInPage implements OnInit {
   }
 
   loginWithGoogle(){
-    this.firebaseService.loginWithGoogle()
+    this.authService.loginWithGoogle()
     .then((res : any) => {
 
       this.userService.getUserWithToken().subscribe((res : any) => {

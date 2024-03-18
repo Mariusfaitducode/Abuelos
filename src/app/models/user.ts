@@ -31,4 +31,6 @@ export class User{
 
     // seller: boolean = false;
     role: string = "user";
+
+    conversations: string[] = [];
 }

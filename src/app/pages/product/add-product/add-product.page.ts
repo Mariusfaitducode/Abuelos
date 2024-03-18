@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { ImageService } from 'src/app/services/images/image.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class AddProductPage implements OnInit {
     private route : ActivatedRoute,
     private productService : ProductService,
     private firebaseService : FirebaseService,
+    private imageService : ImageService
   ) { }
 
   product : Product = new Product();
@@ -77,7 +79,7 @@ export class AddProductPage implements OnInit {
   addProduct(){
     if(this.file != null){
 
-      this.firebaseService.uploadProductImage(this.product, this.file).then(url => {
+      this.imageService.uploadProductImage(this.product, this.file).then(url => {
         this.product.image = url;
         this.productService.addProduct(this.product).subscribe(res => {
           // console.log(res);

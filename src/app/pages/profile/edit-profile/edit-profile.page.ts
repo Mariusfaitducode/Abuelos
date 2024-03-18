@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { ImageService } from 'src/app/services/images/image.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class EditProfilePage implements OnInit {
   constructor(
     private route : Router,
     private userService : UserService,
-    private firebaseService : FirebaseService
+    private firebaseService : FirebaseService,
+    private imageService : ImageService,
   ) { }
 
   user : User | null = null;
@@ -50,7 +52,7 @@ export class EditProfilePage implements OnInit {
 
       if (this.file != null){
 
-        this.firebaseService.uploadAvatarImage(this.user, this.file).then(url => {
+        this.imageService.uploadAvatarImage(this.user, this.file).then(url => {
           this.user!.avatar = url;
           this.userService.updateUser(this.user!).subscribe(res => {
             // console.log(res);

@@ -46,19 +46,8 @@ export class SignUpPage implements OnInit {
 
   signUp(){
     this.errorMessage = '';
-    // this.authService.signUp(this.newUser).subscribe({
-    //   next: (res : any) => {
-    //     console.log(res);
-        
-    //     this.router.navigate(['/log-in']);
-    //   },
-    //   error: (res : HttpErrorResponse) => {
-    //     console.log(res);
-    //     this.errorMessage = res.error.message;
-    //   }
-    // });
 
-    this.firebaseService.signUpWithEmail(this.newUser, this.password)
+    this.authService.signUpWithEmail(this.newUser, this.password)
     .then((res : any) => {
       console.log(res);
       this.router.navigate(['/log-in']);

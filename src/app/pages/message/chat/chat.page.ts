@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Conversation } from 'src/app/models/conversation';
 
 @Component({
   selector: 'app-chat',
@@ -8,10 +9,42 @@ import { Router } from '@angular/router';
 })
 export class ChatPage implements OnInit {
 
-  constructor(private route : Router) { }
+  constructor(
+    private route : ActivatedRoute,
+    private router : Router) { }
+
+
+  conversation : Conversation | null = null;
 
   ngOnInit() {
 
+    this.route.params.subscribe((params : any) => {
+
+      if (params.idConversation){
+        console.log('idConversation');
+        console.log(params.idConversation);
+
+        // Search conversation
+      }
+      else if (params.idUser){
+        console.log('idUser');
+        console.log(params.idUser);
+
+        this.conversation = new Conversation();
+      }
+      else{
+        console.log('No id');
+      }
+
+
+    });
+
+
+
+
+
+
+    // Ajuste la hauteur du textarea en fonction du contenu
 
     document.addEventListener('input', (event : any) => {
       if (event.target.id === 'myTextarea') {
@@ -23,7 +56,7 @@ export class ChatPage implements OnInit {
   }
 
   goBackButton(){
-    this.route.navigate(['tabs/message']);
+    this.router.navigate(['tabs/message']);
   }
 
 }

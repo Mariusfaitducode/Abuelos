@@ -51,17 +51,17 @@ export class UserService {
   updateUser(user : User){
 
     let token = localStorage.getItem('token');
-      let headers = { 'Authorization' : 'Bearer ' + token };
-  
-      return this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
-        next: res => { 
-          console.log('Response update user:', res); 
-          this.getUserWithToken().subscribe();
-        },
-        error: err => { 
-          console.error('Error:', err); 
-        }
-      }));
+    let headers = { 'Authorization' : 'Bearer ' + token };
+
+    return this.http.put(this.url + 'api/users', user, { headers }).pipe(tap({
+      next: res => { 
+        console.log('Response update user:', res); 
+        this.getUserWithToken().subscribe();
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
+    }));
   }
 
   updateUserWithoutFile(user : User){
