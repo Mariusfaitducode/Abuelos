@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Conversation } from 'src/app/models/conversation';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -13,6 +14,8 @@ export class ContactRowComponent  implements OnInit {
 
   @Input() user : User | null = null;
 
+  @Input() conv : Conversation | null = null;
+
   ngOnInit() {}
 
   goToChat(){
@@ -21,7 +24,13 @@ export class ContactRowComponent  implements OnInit {
 
     console.log(this.user);
 
-    this.router.navigate(['chat/' + this.user!.uid]);
+    if (this.conv){
+      this.router.navigate(['chat/' + this.conv.uid + '/' + this.user!.uid]);
+      return;
+    }
+    else{
+      this.router.navigate(['chat/' + this.user!.uid]);
+    }
   }
 
 }

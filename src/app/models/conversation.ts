@@ -3,24 +3,24 @@
 export class Conversation{
 
 
-    uid: string = "";
+    uid: string = '';
     users: string[] = [];
+    
     messages: {
         uid: string,
         content: string,
         date: string,
-        sender: string,
+        senderId: string,
     }[] = [];
-    // lastMessage: {
-    //     uid: string,
-    //     content: string,
-    //     date: string,
-    //     sender: string,
-    // } = {
-    //     uid: "",
-    //     content: "",
-    //     date: "",
-    //     sender: "",
-    // };
-    date: string = "";
+    
+    date: string = '';
+}
+
+
+export class Message{
+    
+    message : string = '';
+    conversationId : string = '';
+    senderId : string = '';
+    receiverId : string = '';
 }

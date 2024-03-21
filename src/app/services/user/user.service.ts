@@ -64,6 +64,10 @@ export class UserService {
     }));
   }
 
+  searchUserWithId(id : string){
+    return this.http.get(this.url + 'api/users/' + id);
+  }
+
   updateUserWithoutFile(user : User){
       
       

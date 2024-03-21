@@ -16,7 +16,7 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <div class="padding-page chat">
+  <div class="padding-page chat" *ngIf="user && correspondent">
 
     <div class="header">
 
@@ -29,7 +29,7 @@
           </svg>
       </ion-button>
 
-      <div class="section-title">Christine</div>  
+      <div class="section-title">{{correspondent.firstname}}</div>  
 
       <ion-button fill="icon-only" (click)="goBackButton()">
         <!-- <ion-icon color="primary" slot="icon-only" name="information-circle-outline"></ion-icon> -->
@@ -47,25 +47,18 @@
       <div class="chat-list">
 
         <div *ngFor="let message of conversation!.messages">
-
+          <div class="message"  [ngClass]="user.uid == message.senderId ? 'right' : 'left'">
+            <div class="message-content">{{message.content}}</div>
+          </div>
         </div>
-  
-        <!-- <div class="message left">
-          <div class="message-content">Message 1</div>
-        </div>
-        <div class="message right">
-          <div class="message-content">Message 2</div>
-        </div>
-        <div class="message left">
-          <div class="message-content">Message 3</div>
-        </div> -->
   
       </div>
   
   
       <div class="chat-box">
-        <textarea id="myTextarea" autosize  rows="1" class="chat-input" placeholder="New message"></textarea>
-        <ion-button fill="icon-only">
+        <textarea [(ngModel)]="messageTyped" id="myTextarea" autosize  rows="1" class="chat-input" placeholder="New message"></textarea>
+
+        <ion-button fill="icon-only" (click)="sendMessage()">
           <!-- <ion-icon color="primary" slot="icon-only" name="send-outline"></ion-icon> -->
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M21.8222 4.00411C22.6952 1.51011 20.3182 -0.547889 18.0162 0.131111L17.9752 0.144111L2.0352 5.60311C-0.738802 6.49311 -0.656802 10.3991 2.1572 11.2461L2.1852 11.2541L7.5332 12.6921L7.5672 12.7001C8.3842 12.8901 9.0122 13.5201 9.3152 14.4941L10.7412 19.8371L10.7422 19.8391C11.4892 22.6791 15.3932 22.6891 16.3722 20.0231L16.3802 20.0011L21.8222 4.00411ZM18.6002 2.04411C19.5332 1.78211 20.2002 2.58911 19.9342 3.34611L14.4902 19.3441C14.1282 20.3071 12.8842 20.1261 12.6752 19.3291L11.2412 13.9591L11.2312 13.9241C10.7712 12.4211 9.6872 11.1461 8.0362 10.7561L2.7202 9.32811C1.7302 9.01911 1.8102 7.77111 2.6502 7.50511L2.6722 7.49811L18.6002 2.04411Z" fill="#C95807"/>

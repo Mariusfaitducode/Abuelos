@@ -1,19 +1,20 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="padding-page" *ngIf="user">
+  <div class="padding-page" *ngIf="user && conversations">
 
     <div class="page-title">Messages</div>
 
     <ion-searchbar class="searchbar" placeholder="Recherche"></ion-searchbar>
 
     <ion-list class="contact-list">
-      <app-contact-row *ngFor="let conv of user.conversations"></app-contact-row>
+      <app-contact-row *ngFor="let conv of conversations" [conv]="conv" [user]="getCorrespondent(conv.users)"></app-contact-row>
+
     </ion-list>
 
-    seller
-    <ion-list class="contact-list">
+    <!-- seller -->
+    <!-- <ion-list class="contact-list">
       <app-contact-row *ngFor="let seller of sellers" [user]="seller"></app-contact-row>
-    </ion-list>
+    </ion-list> -->
   </div>
 </ion-content>
