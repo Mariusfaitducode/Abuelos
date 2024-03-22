@@ -14,6 +14,8 @@ export class SellerService {
 
   private sellersSubject = new BehaviorSubject<User[]>([]);
 
+  private allUsersSubject = new BehaviorSubject<User[]>([]);
+
   loadSellers(){
     return this.http.get(this.url + 'api/users/sellers').pipe(tap({
       next: res => { 
@@ -28,5 +30,22 @@ export class SellerService {
 
   getSellers(){
     return this.sellersSubject.asObservable();
+  }
+
+
+  loadAllUsers(){
+    return this.http.get(this.url + 'api/users').pipe(tap({
+      next: res => { 
+        this.allUsersSubject.next(res as User[]);
+        console.log('Response:', res); 
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
+    }));
+  }
+
+  getAllUsers(){
+    return this.allUsersSubject.asObservable();
   }
 }

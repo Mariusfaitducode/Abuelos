@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, collection, getFirestore, getDoc, setDoc } from 'firebase/firestore';
+import { doc, collection, getFirestore, getDoc, setDoc, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap } from 'rxjs';
 import { Conversation } from 'src/app/models/conversation';
@@ -74,4 +74,43 @@ export class MessagingService {
   //   ).valueChanges({ idField: 'id' });
   // }
 
+  listenForNewMessages(conversationId: string, callback: (messages: any[]) => void): () => void {
+    
+    const messagesRef = collection(this.firestore, `conversations/${conversationId}/messages`);
+    const q = query(messagesRef, orderBy('timestamp', 'asc'));
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const messages = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      callback(messages);
+    });
+
+    // Retournez la fonction de désabonnement pour pouvoir arrêter l'écoute plus tard
+    return unsubscribe;
+  }
+
+
+  listenForNewConversations(userId: string) {
+    const userRef = doc(this.firestore, `users/${userId}`);
+
+    const unsubscribe = onSnapshot(userRef, (doc) => {
+      if (doc.exists()) {
+        
+        
+        
+        
+        // const userData = doc.data();
+
+        // const conversations = userData.conversations;
+        // console.log('Conversations actuelles:', conversations);
+        // Ici, vous pouvez traiter les conversations, par exemple, afficher les nouvelles conversations dans l'UI
+      } else {
+        console.log("Aucun document trouvé !");
+      }
+    });
+
+    return unsubscribe; // Retournez la fonction pour permettre de se désabonner de l'écouteur plus tard si nécessaire
+  }
 }

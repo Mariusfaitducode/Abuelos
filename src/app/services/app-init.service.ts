@@ -20,6 +20,8 @@ export class AppInitService {
 
     this.sellerService.loadSellers().subscribe();
 
+    this.sellerService.loadAllUsers().subscribe();
+
     if (token) {
       this.userService.getUserWithToken().subscribe();
     }

@@ -5,7 +5,16 @@
 
     <div class="page-title">Messages</div>
 
-    <ion-searchbar class="searchbar" placeholder="Recherche"></ion-searchbar>
+    <ion-searchbar (ionInput)="searchUser($event)" class="searchbar" placeholder="Recherche"></ion-searchbar>
+
+    <ion-list class="search-list">
+
+      <app-user-card *ngFor="let user of searchList" [user]="user">
+
+      </app-user-card>
+
+    </ion-list>
+
 
     <ion-list class="contact-list">
       <app-contact-row *ngFor="let conv of conversations" [conv]="conv" [user]="getCorrespondent(conv.users)"></app-contact-row>

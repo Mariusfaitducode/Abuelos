@@ -22,4 +22,8 @@ export class UserCardComponent  implements OnInit {
     this.router.navigate(['profile/edit-profile']);
   }
 
+  goToChat(){
+    this.router.navigate(['chat/' + this.user!.uid]);
+  }
+
 }

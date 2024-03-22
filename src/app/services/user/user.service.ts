@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
 import { FirebaseService } from '../firebase.service';
+import { doc, collection, getFirestore, getDoc, setDoc, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,9 @@ export class UserService {
   url : string = 'http://localhost:3001/';
 
   private userSubject: BehaviorSubject<User | null>;
+
+  private firestore = getFirestore(this.firebaseService.app);
+
 
 
   postUser(user : User){
@@ -68,8 +73,22 @@ export class UserService {
     return this.http.get(this.url + 'api/users/' + id);
   }
 
-  updateUserWithoutFile(user : User){
-      
-      
+  
+  listenToUserUpdate(userId: string){
+    const userRef = doc(this.firestore, `users/${userId}`);
+
+    const unsubscribe = onSnapshot(userRef, (doc) => {
+      if (doc.exists()) {
+        console.log("Document data:", doc.data());
+        this.userSubject.next(doc.data() as User);
+
+        // this.getUserWithToken().subscribe();
+
+      } else {
+        console.log("Aucun document trouvé !");
+      }
+    });
+
+    return unsubscribe;
   }
 }
