@@ -39,7 +39,6 @@
     align-items: center;
 
     gap: 16px;
-
 }
 
 
@@ -47,11 +46,13 @@
 .infos-card{
     margin: 16px 0px;
     padding: 0px;
-
     border-radius: 32px;
-
     background-color: var(--ion-background-color);
 }
 
+
+.horizontal-list{
+    margin-bottom: 16px;
+}
 
 

@@ -3,7 +3,22 @@
 <ion-card class="product-card" (click)="goToProductPage()" >
 
   <img class="product-image" [src]="product.image" alt="">
+
+
+  <div class="product-infos">
+
+    <ion-card-title class="card-title">{{product.name}}</ion-card-title>
+
+    <div class="image-legend">Campos del Abuelo Juan</div>
+
+    <div>
+      <div class="product-price">{{product.price}}€/kg</div>
+    </div>
+
+    <ion-button class="little-button">Ajouter au panier
+    </ion-button>
+
+  </div>
   
-  <ion-card-title>{{product.name}}</ion-card-title>
 
 </ion-card>

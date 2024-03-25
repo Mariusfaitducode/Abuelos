@@ -13,9 +13,9 @@
 
 
   <div class="padding-page"> 
-    <div class="section-title">Produit de la saison</div>
+    <div class="section-title">Fruits de la saison</div>
 
-    <ion-list class="product-list">
+    <ion-list class="horizontal-list">
     
       <div *ngFor="let product of products">
         <app-card-product [product]="product"></app-card-product>
@@ -24,14 +24,13 @@
 
     </ion-list>
 
-    <div class="info-cagette">
-      <p>Pensez à la planète, rendez la cagette !</p>
-      <p>(2€ de remise)</p>
-    </div>
+    <!-- <div class="info-cagette">
+      <p>Pensez à la planète, rendez la cagette ! (2€ de remise)</p>
+    </div> -->
 
-    <div class="section-title">Le concept</div>
+    <div class="section-title">Comment ça marche ?</div>
 
-    <ion-list class="infos-list">
+    <!-- <ion-list class="infos-list">
       <ion-card class="infos-card">
         <ion-card-header>
           <ion-card-title>Agriculture du non agir</ion-card-title>
@@ -51,6 +50,17 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, similique doloremque fuga nostrum commodi fugit esse asperiores ullam ut, laboriosam dolor labore nesciunt eaque nemo ad hic perferendis voluptatum optio?</p>
         </ion-card-content>
       </ion-card>
+    </ion-list> -->
+
+    <ion-list class="horizontal-list">
+    
+      <img src="/../../assets/images/Carte Concept.png" width="250px" height="250px" alt="">
+
+      <img src="/../../assets/images/Carte Agriculture.png" width="250px" height="250px" alt="">
+      
+      
+
+
     </ion-list>
     
     <ion-button expand="block" class="big-button" (click)="goToSignUpPage()">Rejoindre abuelos</ion-button>
