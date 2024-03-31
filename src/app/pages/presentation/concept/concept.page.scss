@@ -1,0 +1,47 @@
+
+
+.close-page{
+    position: fixed;
+    top: 16px;
+    left: 16px;
+
+    z-index: 100;
+    background-color: var(--transparent-gray);
+
+    // padding: 4px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.padding-page{
+    margin-top: 48px;
+}
+
+.page-title{
+    margin-bottom: 16px;
+}
+
+.section-title{
+    padding-top: 40px;
+    margin-bottom: 16px;
+}
+
+.orange-text{
+    color: var(--ion-color-primary);
+}
+
+
+.flex-row{
+    gap: 32px;
+}
+
+// .flex{
+//     display: flex;
+//     gap: 8px;
+// }

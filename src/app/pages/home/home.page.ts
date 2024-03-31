@@ -29,4 +29,10 @@ export class HomePage {
     // console.log('go to sign up page');
     this.router.navigate(['/sign-up']);
   }
+
+
+  goToConceptPage(){
+    // console.log('go to concept page');
+    this.router.navigate(['/concept']);
+  }
 }
