@@ -35,4 +35,9 @@ export class HomePage {
     // console.log('go to concept page');
     this.router.navigate(['/concept']);
   }
+
+  goToOperationPage(){
+    // console.log('go to operation page');
+    this.router.navigate(['/operation']);
+  }
 }
