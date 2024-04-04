@@ -40,4 +40,9 @@ export class HomePage {
     // console.log('go to operation page');
     this.router.navigate(['/operation']);
   }
+
+  goToRepartidorPage(){
+    // console.log('go to repartidor page');
+    this.router.navigate(['/repartidor']);
+  }
 }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-concept',
   templateUrl: './concept.page.html',
-  styleUrls: ['./concept.page.scss'],
+  styleUrls: ['./concept.page.scss', '../presentation.scss'],
 })
 export class ConceptPage implements OnInit {
 

@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'operation',
     loadChildren: () => import('./pages/presentation/operation/operation.module').then( m => m.OperationPageModule)
+  },
+  {
+    path: 'repartidor',
+    loadChildren: () => import('./pages/presentation/repartidor/repartidor.module').then( m => m.RepartidorPageModule)
   }
   // {
   //   path: 'dashboard',
