@@ -33,6 +33,7 @@
 
 .padding-page{
     padding: 24px;
+    // font-size: 18px;
 }
 
 
@@ -195,4 +196,8 @@ ion-card{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.orange-text{
+    color: var(--ion-color-primary);
 }

@@ -58,7 +58,11 @@ const routes: Routes = [
   {
     path: 'repartidor',
     loadChildren: () => import('./pages/presentation/repartidor/repartidor.module').then( m => m.RepartidorPageModule)
-  }
+  },
+  {
+    path: 'becoming-repartidor',
+    loadChildren: () => import('./pages/connection/becoming-repartidor/becoming-repartidor.module').then( m => m.BecomingRepartidorPageModule)
+  },
   // {
   //   path: 'dashboard',
   //   loadChildren: () => import('./pages/profile/dashboard/dashboard.module').then( m => m.DashboardPageModule)

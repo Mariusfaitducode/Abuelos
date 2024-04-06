@@ -10,6 +10,7 @@ import { SellerRowComponent } from '../components/user/seller-row/seller-row.com
 import { ContactRowComponent } from '../components/user/contact-row/contact-row.component';
 import { DashboardCardComponent } from '../components/user/dashboard-card/dashboard-card.component';
 import { UserCardComponent } from '../components/user/user-card/user-card.component';
+import { CardFarmerComponent } from '../components/product/card-farmer/card-farmer.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { UserCardComponent } from '../components/user/user-card/user-card.compon
     ],
     declarations: [
       CardProductComponent,
+      CardFarmerComponent,
       SellerRowComponent,
       UserCardComponent,
       ContactRowComponent,
@@ -28,6 +30,7 @@ import { UserCardComponent } from '../components/user/user-card/user-card.compon
     ],
     exports:[
       CardProductComponent, 
+      CardFarmerComponent,
       SellerRowComponent,
       UserCardComponent,
       ContactRowComponent,

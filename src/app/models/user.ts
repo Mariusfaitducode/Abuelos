@@ -34,3 +34,42 @@ export class User{
 
     conversations: string[] = [];
 }
+
+
+export class Farmer extends User{
+
+    override role: string = "farmer";
+
+    // products: string[] = [];
+
+    fields: string[] = [];
+}
+
+
+
+export class Repartidor extends User{
+
+    override role: string = "seller";
+    
+
+
+    fields: string[] = [];
+
+    deliveryAddress? : {
+        street: string,
+        number: string,
+        postalCode: string,
+        city: string,
+        country: string,
+    }
+}
+
+
+export class Field{
+    
+    // uid: string = "";
+    name: string = "";
+    description: string = "";
+    farmerId: string = "";
+    products: string[] = [];
+}

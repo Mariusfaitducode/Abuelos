@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-repartidor',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepartidorPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router : Router,
+  ) { }
 
   ngOnInit() {
   }
 
   goBack(){
     window.history.back();
+  }
+
+  goToRepartidorForm(){
+    this.router.navigate(['/becoming-repartidor']);
   }
 }
