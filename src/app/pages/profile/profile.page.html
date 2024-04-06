@@ -18,6 +18,13 @@
     <!-- <ion-button *ngIf="!user.admin" expand="block" class="big-button">Devenir repartidor</ion-button> -->
 
 
+    <div *ngIf="user.role == 'farmer'" class="horizontal-list">
+
+      <app-card-field *ngFor="let field of userFields" [field]="field"></app-card-field>
+    </div>
+
+
+
     <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddField()" expand="block" class="big-button">Ajouter un champ</ion-button>
     
 

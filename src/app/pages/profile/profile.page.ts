@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Field } from 'src/app/models/field';
 import { User } from 'src/app/models/user';
+import { FieldService } from 'src/app/services/product/field.service';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -15,15 +17,41 @@ export class ProfilePage {
     private router : Router,
     private route : ActivatedRoute,
     private authService : AuthService,
-    private userService : UserService) {}
+    private userService : UserService,
+    private fieldService : FieldService,
+    ) {}
 
   user : User | null = null;
+
+  userFields : Field[] = [];
 
 
   ngOnInit(){
 
     this.userService.getUser().subscribe(user => {
       this.user = user;
+
+      // Retrouve les champs lié à l'utilisateur (Farmer || Repartidor)
+      if (this.user && this.user.role !== 'user'){
+
+        this.fieldService.getFields().subscribe(fields => {
+
+          this.userFields = [];
+
+          for (let fieldId of this.user!.fields){
+            
+            let field = fields.find(f => f.uid === fieldId);
+
+            if (field){
+              this.userFields.push(field);
+            }
+          }
+
+          console.log('User fields found:', this.userFields)
+
+        });
+
+      }
     });
 
     // this.route.queryParams.subscribe(params =>{

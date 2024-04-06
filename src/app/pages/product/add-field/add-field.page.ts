@@ -92,14 +92,35 @@ export class AddFieldPage implements OnInit {
         this.field.image = url;
         this.fieldService.addField(this.field).subscribe(res => {
           // console.log(res);
-          this.router.navigate(['tabs/profile']);
+
+          let field = res as Field;
+
+          this.user?.fields.push(field.uid);
+
+          this.userService.updateUser(this.user!).subscribe(res => {
+            console.log(res);
+            this.router.navigate(['tabs/profile']);
+
+          });
+
+
         });
       });
     }
     else {
       this.fieldService.addField(this.field).subscribe(res => {
         // console.log(res);
-        this.router.navigate(['tabs/profile']);
+
+        let field = res as Field;
+
+          this.user?.fields.push(field.uid);
+
+          this.userService.updateUser(this.user!).subscribe(res => {
+            console.log(res);
+            this.router.navigate(['tabs/profile']);
+
+          });
+
       });
     }
   }

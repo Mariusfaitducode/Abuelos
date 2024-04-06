@@ -14,26 +14,14 @@ export class FieldService {
   url : string = 'http://localhost:3001/';
 
 
-  // private productsSubject = new BehaviorSubject<Product[]>([]);
+  private fieldsSubject = new BehaviorSubject<Field[]>([]);
 
 
-  // loadProducts(){
-  //   return this.http.get(this.url + 'api/products').pipe(tap({
-  //     next: res => { 
-  //       this.productsSubject.next(res as Product[]);
-  //       console.log('Response:', res); 
-  //     },
-  //     error: err => { 
-  //       console.error('Error:', err); 
-  //     }
-  //   }));
-  // }
-
-  addField(field : Field){
-    return this.http.post(this.url + 'api/products/addField', field).pipe(tap({
+  loadFields(){
+    return this.http.get(this.url + 'api/products/getFields').pipe(tap({
       next: res => { 
-        console.log('Response:', res); 
-        // this.loadProducts().subscribe();
+        this.fieldsSubject.next(res as Field[]);
+        console.log('Response get fields:', res); 
       },
       error: err => { 
         console.error('Error:', err); 
@@ -41,7 +29,19 @@ export class FieldService {
     }));
   }
 
-  // getProducts(){
-  //   return this.productsSubject.asObservable();
-  // }
+  addField(field : Field){
+    return this.http.post(this.url + 'api/products/addField', field).pipe(tap({
+      next: res => { 
+        console.log('Response post field:', res); 
+        this.loadFields().subscribe();
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
+    }));
+  }
+
+  getFields(){
+    return this.fieldsSubject.asObservable();
+  }
 }

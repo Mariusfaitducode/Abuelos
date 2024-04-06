@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BecomingRepartidorPageRoutingModule } from './becoming-repartidor-routing.module';
 
 import { BecomingRepartidorPage } from './becoming-repartidor.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BecomingRepartidorPageRoutingModule
+    BecomingRepartidorPageRoutingModule,
+    SharedModule
   ],
   declarations: [BecomingRepartidorPage]
 })
