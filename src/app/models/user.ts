@@ -65,11 +65,3 @@ export class Repartidor extends User{
 }
 
 
-export class Field{
-    
-    // uid: string = "";
-    name: string = "";
-    description: string = "";
-    farmerId: string = "";
-    products: string[] = [];
-}

@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-direction: flex-start;
+    align-items: center;
+
+    margin-bottom: 32px;
+    
+}
+
+.header ion-button {
+    --padding-start: 0;
+    --padding-right: 32px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+
+//   .product-image{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+// }

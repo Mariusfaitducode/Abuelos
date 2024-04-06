@@ -4,6 +4,7 @@ import { FirebaseService } from '../firebase.service';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { User } from 'src/app/models/user';
 import { Product } from 'src/app/models/product';
+import { Field } from 'src/app/models/field';
 
 
 @Injectable({
@@ -27,7 +28,7 @@ export class ImageService {
 
       console.log('UPLOAD IMAGE')
 
-      const imageId = Math.random().toString(36).substring(2);
+      const imageId = Date.now().toString();
 
       const storageRef = ref(this.storage, `/users/${user.uid}/images/${imageId}`);
       try {
@@ -45,9 +46,27 @@ export class ImageService {
 
       console.log('UPLOAD IMAGE')
 
-      const imageId = Math.random().toString(36).substring(2);
+      const imageId = Date.now().toString();
 
       const storageRef = ref(this.storage, `/products/${product.uid}/images/${imageId}`);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+        return getDownloadURL(snapshot.ref);
+      } 
+      catch (error) {
+        console.error("Erreur de téléversement : ", error);
+        throw error;
+      }
+    }
+
+
+    async uploadFieldImage(field: Field, file: File): Promise<string> {
+
+      console.log('UPLOAD IMAGE')
+
+      const imageId = Date.now().toString();
+
+      const storageRef = ref(this.storage, `/fields/${field.uid}/images/${imageId}`);
       try {
         const snapshot = await uploadBytes(storageRef, file);
         return getDownloadURL(snapshot.ref);

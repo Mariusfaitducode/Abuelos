@@ -49,4 +49,8 @@ export class ProfilePage {
     this.router.navigate(['product/add-product']);
   }
 
+  goToAddField(){
+    this.router.navigate(['product/add-field']);
+  }
+
 }

@@ -10,15 +10,22 @@
     <div class="profile-content">
       <app-user-card [user]="user"></app-user-card>
     
+      <!-- A adapter en fonction du profil -->
       <app-dashboard-card></app-dashboard-card>
     </div>
     
     
-    <ion-button *ngIf="!user.admin" expand="block" class="big-button">Devenir vendeur</ion-button>
+    <!-- <ion-button *ngIf="!user.admin" expand="block" class="big-button">Devenir repartidor</ion-button> -->
+
+
+    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddField()" expand="block" class="big-button">Ajouter un champ</ion-button>
+    
+
+    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddProduct()" expand="block" class="big-button">Ajouter un produit</ion-button>
 
 
 
-    <ion-list>
+    <ion-list *ngIf="user.role != 'farmer'">
 
       
 

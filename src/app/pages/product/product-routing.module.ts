@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'add-product',
     loadChildren: () => import('./add-product/add-product.module').then( m => m.AddProductPageModule)
+  },
+  {
+    path: 'add-field',
+    loadChildren: () => import('./add-field/add-field.module').then( m => m.AddFieldPageModule)
   }
 ];
 
