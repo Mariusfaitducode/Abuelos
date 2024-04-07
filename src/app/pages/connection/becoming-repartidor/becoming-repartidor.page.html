@@ -21,15 +21,24 @@
     </div>
 
 
-    <div class="horizontal-list">
-      <app-card-field *ngFor="let field of fields" [field]="field"></app-card-field>
-    </div>
+    <ion-searchbar (ionInput)="searchField($event)" class="searchbar" placeholder="Recherche"></ion-searchbar>
 
-    
-    
+
+
+    <div class="horizontal-list">
+      <app-card-field *ngFor="let field of searchList" [farmer]="field.farmer!" [field]="field"></app-card-field>
+    </div>
 
   </div>
 
 
+
+  <div class="navbar">
+    <div>
+    </div>
+
+    <ion-button class="middle-button" (click)="nextStep()">Continuer</ion-button>
+
+  </div>
   
 </ion-content>

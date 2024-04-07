@@ -20,7 +20,7 @@
 
     <div *ngIf="user.role == 'farmer'" class="horizontal-list">
 
-      <app-card-field *ngFor="let field of userFields" [field]="field"></app-card-field>
+      <app-card-field *ngFor="let field of userFields" [farmer]="user" [field]="field"></app-card-field>
     </div>
 
 

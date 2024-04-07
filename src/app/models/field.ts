@@ -1,3 +1,4 @@
+import { User } from "./user";
 
 
 export class Field{
@@ -8,4 +9,6 @@ export class Field{
     description: string = '';
     farmerId: string = '';
     products: string[] = [];
+
+    farmer?: User;
 }
