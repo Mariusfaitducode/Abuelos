@@ -32,4 +32,8 @@ export class CardFieldComponent  implements OnInit {
     // console.log('go to product page');
     // this.router.navigate(['product/' + this.product.uid]);
   }
+
+  goToAddField(){
+    // this.router.navigate(['product/add-field']);
+  }
 }

@@ -34,6 +34,10 @@
         </div>
       </div>
 
+      <div *ngIf="cardType !== 'selection'" >
+        <a href="product/add-field/{{field.uid}}">Modifier</a>
+      </div>
+
       
     </div>
 
@@ -56,7 +60,7 @@
     
 
     <div class="first-row">
-      <a href="">Produits associés</a>
+      <a >Produits associés</a>
 
 
       <div>

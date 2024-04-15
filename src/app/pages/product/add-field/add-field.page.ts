@@ -31,6 +31,8 @@ export class AddFieldPage implements OnInit {
 
   user : User | null = null;
 
+  modify : boolean = false;
+
   ngOnInit() {
 
     this.route.params.subscribe((params : any) => {
@@ -43,6 +45,19 @@ export class AddFieldPage implements OnInit {
         }
 
       });
+
+      if (params.id){
+
+        this.fieldService.getFields().subscribe(fields => {
+
+          if (fields.length > 0){
+            this.field = fields.find((f : Field) => f.uid == params.id)!;
+            this.modify = true;
+          }
+        });
+
+
+      }
 
       // if (params.id){
       //   this.productService.getProducts().subscribe(products => {
@@ -95,15 +110,17 @@ export class AddFieldPage implements OnInit {
 
           let field = res as Field;
 
-          this.user?.fields.push(field.uid);
+          if (!this.modify){
+            this.user?.fields.push(field.uid);
 
-          this.userService.updateUser(this.user!).subscribe(res => {
-            console.log(res);
+            this.userService.updateUser(this.user!).subscribe(res => {
+              console.log(res);
+              this.router.navigate(['tabs/profile']);
+            });
+          }
+          else{
             this.router.navigate(['tabs/profile']);
-
-          });
-
-
+          }
         });
       });
     }
@@ -113,15 +130,31 @@ export class AddFieldPage implements OnInit {
 
         let field = res as Field;
 
+        if (!this.modify){
           this.user?.fields.push(field.uid);
 
           this.userService.updateUser(this.user!).subscribe(res => {
             console.log(res);
             this.router.navigate(['tabs/profile']);
-
           });
-
+        }
+        else{
+          this.router.navigate(['tabs/profile']);
+        }
       });
     }
+  }
+
+  removeField(){
+    this.fieldService.removeField(this.field).subscribe(res => {
+      console.log(res);
+
+      this.user!.fields = this.user?.fields.filter(f => f != this.field.uid)!;
+
+      this.userService.updateUser(this.user!).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['tabs/profile']);
+      });
+    });
   }
 }

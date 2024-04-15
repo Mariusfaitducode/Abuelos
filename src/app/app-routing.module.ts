@@ -48,6 +48,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/product/add-product/add-product.module').then( m => m.AddProductPageModule)
   },
   {
+    path: 'product/add-field/:id',
+    loadChildren: () => import('./pages/product/add-field/add-field.module').then( m => m.AddFieldPageModule)
+  },
+  {
     path: 'concept',
     loadChildren: () => import('./pages/presentation/concept/concept.module').then( m => m.ConceptPageModule)
   },

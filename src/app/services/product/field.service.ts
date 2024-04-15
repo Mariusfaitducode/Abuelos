@@ -44,4 +44,16 @@ export class FieldService {
   getFields(){
     return this.fieldsSubject.asObservable();
   }
+
+  removeField(field : Field){
+    return this.http.delete(this.url + 'api/products/removeField/' + field.uid).pipe(tap({
+      next: res => { 
+        console.log('Response remove field:', res); 
+        this.loadFields().subscribe();
+      },
+      error: err => { 
+        console.error('Error:', err); 
+      }
+    }));
+  }
 }
