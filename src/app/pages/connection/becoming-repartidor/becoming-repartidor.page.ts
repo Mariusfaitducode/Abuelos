@@ -21,7 +21,22 @@ export class BecomingRepartidorPage implements OnInit {
   fields : Field[] = [];
   searchList : Field[] = [];
 
+  user : User = new User();
+
+  step : number = 1;
+
+  canStock : boolean = false;
+
+  finishedForm : boolean = false;
+  
+
   ngOnInit() {
+
+    this.userService.getUser().subscribe(user => {
+      this.user = user as User;
+
+      console.log('New repartidor:', this.user);
+    });
 
     this.fieldService.getFields().subscribe(fields => {
       this.fields = fields;
@@ -56,9 +71,43 @@ export class BecomingRepartidorPage implements OnInit {
     console.log('Search list : ', this.searchList);
   }
 
+  canGo2(){
+    return this.user.fields && this.user.fields.length > 0;
+  }
+
+  // goStep2(){
+  //   this.step = 'step2';
+  // }
+
+  canGo3(){
+    return this.canGo2() 
+    // && this.user.deliveryAddress !== undefined 
+    && this.canStock;
+  }
+
+
+  // goStep3(){
+  //   this.step = 'step3';
+  // }
+
+  // goStep4(){
+  //   this.step = 'step4';
+  // }
 
   nextStep(){
-    
+    this.step++;
+  }
+
+  return(){
+    this.step--;
+    this.finishedForm = false;
+
+  }
+
+  validateForm(){
+    // this.step = 'step5';goStep5
+    this.step = 5;
+    this.finishedForm = true;
   }
 
 

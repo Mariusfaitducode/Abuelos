@@ -141,6 +141,17 @@
     font-weight: 800; 
 }
 
+.outline-button{
+    --background: var(--ion-background-color);
+
+
+    color: var(--ion-color-primary);
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 32px;
+
+
+}
+
 
 // Searchbar
 

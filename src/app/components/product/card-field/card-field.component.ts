@@ -17,15 +17,31 @@ export class CardFieldComponent  implements OnInit {
 
   @Input() cardType : string = 'selection';
 
-  selected : boolean = false;
+  @Input() repartidor : User = new User();
+
+  // selected : boolean = false;
 
   constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
+  selectedField(){
+    return this.repartidor.fields !== undefined && this.repartidor.fields.includes(this.field.uid);
+  }
+
   selectField(){
-    this.selected = !this.selected;
+
+    if (this.repartidor.fields === undefined){
+      this.repartidor.fields = [];
+    }
+
+    if (!this.selectedField()){
+      this.repartidor.fields.push(this.field.uid);
+    }
+    else{
+      this.repartidor.fields = this.repartidor.fields.filter(field => field !== this.field.uid);
+    }
   }
 
   goToProductPage(){

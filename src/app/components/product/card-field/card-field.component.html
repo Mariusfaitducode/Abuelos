@@ -12,13 +12,13 @@
       <ion-card-title class="card-title">{{field.name}}</ion-card-title>
 
       <div *ngIf="cardType == 'selection'" (click)="selectField()">
-        <div *ngIf="!selected">
+        <div *ngIf="!selectedField()">
           <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M33.0795 13.8648L33.0795 13.8649C33.8506 19.8729 31.5351 27.1784 24.7449 30.1848L24.7002 30.2046L24.6602 30.2326C22.3853 31.8279 19.6292 32.5 16.8289 32.5C14.1458 32.5 11.4416 31.8801 9.12417 30.8751C6.80081 29.8675 4.90444 28.4898 3.80104 27.0056C0.251268 22.2211 -0.516223 15.2257 1.89105 9.19107L1.89109 9.19098C3.3952 5.41822 6.17082 2.83446 10.1781 1.49819L10.1782 1.49816C14.2777 0.130243 18.6852 0.414652 21.6854 0.906214L21.6858 0.906268C27.7159 1.89003 32.1913 6.93647 33.0795 13.8648Z" stroke="black"/>
             </svg>
         </div>
   
-        <div *ngIf="selected">
+        <div *ngIf="selectedField()">
           <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="Hands Checkmark">
             <g id="Master/Stickers/Checkmark">
