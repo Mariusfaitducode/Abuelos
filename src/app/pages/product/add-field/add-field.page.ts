@@ -100,49 +100,37 @@ export class AddFieldPage implements OnInit {
     return this.field.name != '' && this.field.description != '';
   }
 
-  addField(){
+  validFormField(){
     if(this.file != null){
 
       this.imageService.uploadFieldImage(this.field, this.file).then(url => {
         this.field.image = url;
-        this.fieldService.addField(this.field).subscribe(res => {
-          // console.log(res);
-
-          let field = res as Field;
-
-          if (!this.modify){
-            this.user?.fields.push(field.uid);
-
-            this.userService.updateUser(this.user!).subscribe(res => {
-              console.log(res);
-              this.router.navigate(['tabs/profile']);
-            });
-          }
-          else{
-            this.router.navigate(['tabs/profile']);
-          }
-        });
+        this.addOrUpdateField();
       });
     }
     else {
-      this.fieldService.addField(this.field).subscribe(res => {
-        // console.log(res);
-
-        let field = res as Field;
-
-        if (!this.modify){
-          this.user?.fields.push(field.uid);
-
-          this.userService.updateUser(this.user!).subscribe(res => {
-            console.log(res);
-            this.router.navigate(['tabs/profile']);
-          });
-        }
-        else{
-          this.router.navigate(['tabs/profile']);
-        }
-      });
+      this.addOrUpdateField();
     }
+  }
+
+  addOrUpdateField(){
+    this.fieldService.addOrUpdateField(this.field).subscribe(res => {
+      // console.log(res);
+
+      let field = res as Field;
+
+      if (!this.modify){
+        this.user?.fields.push(field.uid);
+
+        this.userService.updateUser(this.user!).subscribe(res => {
+          console.log(res);
+          this.router.navigate(['tabs/profile']);
+        });
+      }
+      else{
+        this.router.navigate(['tabs/profile']);
+      }
+    });
   }
 
   removeField(){

@@ -15,9 +15,15 @@ export class CardFieldComponent  implements OnInit {
 
   @Input() farmer : User = new User();
 
+  // selection / show
   @Input() cardType : string = 'selection';
 
+  // repartidor / product / farmer
+  @Input() cardObject : string = 'repartidor';
+
   @Input() repartidor : User = new User();
+
+  @Input() product : Product = new Product();
 
   // selected : boolean = false;
 
@@ -27,20 +33,39 @@ export class CardFieldComponent  implements OnInit {
   }
 
   selectedField(){
-    return this.repartidor.fields !== undefined && this.repartidor.fields.includes(this.field.uid);
+
+    if (this.cardObject === 'product'){
+      return this.product.field !== undefined && this.product.field === this.field.uid;
+
+    }
+    else if (this.cardObject === 'repartidor'){
+      return this.repartidor.fields !== undefined && this.repartidor.fields.includes(this.field.uid);
+
+    }
+    return false
   }
 
   selectField(){
 
-    if (this.repartidor.fields === undefined){
-      this.repartidor.fields = [];
-    }
+    if (this.cardObject === 'product'){
 
-    if (!this.selectedField()){
-      this.repartidor.fields.push(this.field.uid);
+      this.product.field = this.field.uid;
+      console.log('Product field:', this.product.field);
+
     }
-    else{
-      this.repartidor.fields = this.repartidor.fields.filter(field => field !== this.field.uid);
+    else if (this.cardObject === 'repartidor'){
+
+
+      if (this.repartidor.fields === undefined){
+        this.repartidor.fields = [];
+      }
+  
+      if (!this.selectedField()){
+        this.repartidor.fields.push(this.field.uid);
+      }
+      else{
+        this.repartidor.fields = this.repartidor.fields.filter(field => field !== this.field.uid);
+      }
     }
   }
 

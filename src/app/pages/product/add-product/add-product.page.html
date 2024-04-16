@@ -1,7 +1,7 @@
 
 
 <ion-content [fullscreen]="true">
-  <div class="padding-page">
+  <div class="padding-page" *ngIf="user && user.role === 'farmer'">
 
     <div class="header">
       <ion-button fill="icon-only" (click)="goBackButton()">
@@ -57,10 +57,16 @@
         [(ngModel)]="product.season"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item *ngIf="!modify">
         <ion-input type="text" 
         labelPlacement="floating" label="Champs" 
         [(ngModel)]="product.field"></ion-input>
+
+        <div *ngIf="user.role == 'farmer'" class="horizontal-list">
+
+          <app-card-field *ngFor="let field of userFields" [farmer]="user" [field]="field" 
+          [cardType]="'selection'" [cardObject]="'product'" [product]="product"></app-card-field>
+        </div>
       </ion-item>
 
       <ion-item>
@@ -92,7 +98,9 @@
     
 
 
-    <ion-button [disabled]="!canAddProduct()" (click)="addProduct()" expand="block" class="big-button">Modifier</ion-button>
+    <ion-button  *ngIf="!modify" [disabled]="!canAddProduct()" (click)="validFormProduct()" expand="block" class="big-button">Ajouter</ion-button>
+    <ion-button *ngIf="modify" [disabled]="!canAddProduct()" (click)="validFormProduct()" expand="block" class="big-button">Modifier</ion-button>
+
 
   </div>
 </ion-content>

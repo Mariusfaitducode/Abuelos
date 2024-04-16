@@ -30,7 +30,7 @@ export class User{
     orders: number[] = [];
 
     // seller: boolean = false;
-    role: string = "user";
+    role: Role = Role.user;
 
     conversations: string[] = [];
 
@@ -46,6 +46,15 @@ export class User{
         city: string,
         country: string,
     }
+}
+
+
+export enum Role {
+    user = "user",
+    farmer = "farmer",
+    seller = "seller",
+    admin = "admin",
+
 }
 
 

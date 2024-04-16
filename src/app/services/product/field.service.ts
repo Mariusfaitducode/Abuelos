@@ -18,7 +18,7 @@ export class FieldService {
 
 
   loadFields(){
-    return this.http.get(this.url + 'api/products/getFields').pipe(tap({
+    return this.http.get(this.url + 'api/fields/getFields').pipe(tap({
       next: res => { 
         this.fieldsSubject.next(res as Field[]);
         console.log('Response get fields:', res); 
@@ -29,8 +29,8 @@ export class FieldService {
     }));
   }
 
-  addField(field : Field){
-    return this.http.post(this.url + 'api/products/addField', field).pipe(tap({
+  addOrUpdateField(field : Field){
+    return this.http.post(this.url + 'api/fields/addField', field).pipe(tap({
       next: res => { 
         console.log('Response post field:', res); 
         this.loadFields().subscribe();
@@ -46,7 +46,7 @@ export class FieldService {
   }
 
   removeField(field : Field){
-    return this.http.delete(this.url + 'api/products/removeField/' + field.uid).pipe(tap({
+    return this.http.delete(this.url + 'api/fields/removeField/' + field.uid).pipe(tap({
       next: res => { 
         console.log('Response remove field:', res); 
         this.loadFields().subscribe();

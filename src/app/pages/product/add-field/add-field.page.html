@@ -52,8 +52,8 @@
     
 
 
-    <ion-button *ngIf="!modify" [disabled]="!canAddField()" (click)="addField()" expand="block" class="big-button">Ajouter</ion-button>
-    <ion-button *ngIf="modify" [disabled]="!canAddField()" (click)="addField()" expand="block" class="big-button">Modifier</ion-button>
+    <ion-button *ngIf="!modify" [disabled]="!canAddField()" (click)="validFormField()" expand="block" class="big-button">Ajouter</ion-button>
+    <ion-button *ngIf="modify" [disabled]="!canAddField()" (click)="validFormField()" expand="block" class="big-button">Modifier</ion-button>
 
     <ion-button *ngIf="modify" (click)="removeField()" expand="block" class="big-button">Retirer</ion-button>
 

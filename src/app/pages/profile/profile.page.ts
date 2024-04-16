@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Field } from 'src/app/models/field';
-import { User } from 'src/app/models/user';
+import { Role, User } from 'src/app/models/user';
 import { FieldService } from 'src/app/services/product/field.service';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -32,7 +32,7 @@ export class ProfilePage {
       this.user = user;
 
       // Retrouve les champs lié à l'utilisateur (Farmer || Repartidor)
-      if (this.user && this.user.role !== 'user'){
+      if (this.user && this.user.role !== Role.user){
 
         this.fieldService.getFields().subscribe(fields => {
 

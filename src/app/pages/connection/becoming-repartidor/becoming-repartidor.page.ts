@@ -4,6 +4,7 @@ import { Field } from 'src/app/models/field';
 import { User } from 'src/app/models/user';
 import { FieldService } from 'src/app/services/product/field.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { Role } from 'src/app/models/user';
 
 @Component({
   selector: 'app-becoming-repartidor',
@@ -107,7 +108,18 @@ export class BecomingRepartidorPage implements OnInit {
   validateForm(){
     // this.step = 'step5';goStep5
     this.step = 5;
-    this.finishedForm = true;
+    
+    this.user.role = Role.seller;
+    
+    this.userService.updateUser(this.user).subscribe(user => {
+      console.log('User updated:', user);
+      this.finishedForm = true;
+
+    });
+    
+    
+
+
   }
 
 
