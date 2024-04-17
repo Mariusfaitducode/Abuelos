@@ -12,12 +12,14 @@
       <app-user-card *ngFor="let user of searchList" [user]="user">
 
       </app-user-card>
-
     </ion-list>
 
 
     <ion-list class="contact-list">
-      <app-contact-row *ngFor="let conv of conversations" [conv]="conv" [user]="getCorrespondent(conv.users)"></app-contact-row>
+      <div *ngFor="let conv of conversations">
+        <app-contact-row  *ngIf="conv" [conv]="conv" [user]="getCorrespondent(conv.users)"></app-contact-row>
+      
+      </div>
 
     </ion-list>
 

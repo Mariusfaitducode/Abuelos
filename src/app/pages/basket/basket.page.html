@@ -2,7 +2,16 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="padding-page">
+  <div class="empty-basket"  *ngIf="basket.length === 0">
+  
+    <div class="empty-basket-image" (click)="goToBasket()">
+      <img src="/../../assets/images/empty_basket.png" alt="">
+
+    </div>
+  
+  </div>
+
+  <div class="padding-page" *ngIf="basket.length > 0">
 
     <div class="page-title">Panier</div>
 

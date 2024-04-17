@@ -19,20 +19,31 @@ export class ChatPage implements OnInit {
     private messagingService : MessagingService) { }
 
 
+  conversations : Conversation[] | null = null;
+  
+
   conversation : Conversation | null = null;
 
   user : User | null = null;
 
   correspondent : User | null = null;
 
-
   messageTyped : string = '';
 
+  existingConversation : boolean = false;
 
   ngOnInit() {
 
     this.userService.getUser().subscribe(user => {
       this.user = user;
+
+      this.messagingService.getConversationsWithToken().subscribe();
+
+      this.messagingService.getConversations().subscribe(conversations => {
+        this.conversations = conversations;
+
+        if (!this.conversations) return;
+      });
     });
 
     this.route.params.subscribe((params : any) => {
@@ -45,14 +56,19 @@ export class ChatPage implements OnInit {
 
           console.log('Conversations found : ', conversations);
 
-          this.conversation = conversations?.find(c => c.uid === params.idConversation)!;
+          this.conversation = conversations?.find(c => c?.uid === params.idConversation)!;
 
           console.log('Conversation found : ', this.conversation);
 
+          if (this.conversation){
+            this.existingConversation = true;
+          }
+
           this.userService.searchUserWithId(params.idUser).subscribe((user : any) => {
 
-            console.log('Contact user found : ', user);
-            this.conversation?.users.push(user.uid);
+            if (!this.conversation?.users.includes(user.uid)){
+              this.conversation?.users.push(user.uid);
+            }
   
             this.correspondent = user;
           });
@@ -64,12 +80,23 @@ export class ChatPage implements OnInit {
 
         this.conversation = new Conversation();
 
+
+        if (this.conversations){
+          let conv = this.conversations.find(c => c?.users.includes(params.idUser));
+
+          if (conv){
+            this.conversation = conv;
+          }
+        }
+
+
         // Search user
 
         this.userService.searchUserWithId(params.idUser).subscribe((user : any) => {
 
-          console.log('Contact user found : ', user);
-          this.conversation?.users.push(user.uid);
+          if (!this.conversation?.users.includes(user.uid)){
+            this.conversation?.users.push(user.uid);
+          }
 
           this.correspondent = user;
         });

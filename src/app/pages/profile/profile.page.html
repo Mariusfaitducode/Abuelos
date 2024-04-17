@@ -8,7 +8,7 @@
     <div class="page-title">Profil</div>
 
     <div class="profile-content">
-      <app-user-card [user]="user"></app-user-card>
+      <app-user-card [user]="user" [isCurrentUser]="true"></app-user-card>
     
       <!-- A adapter en fonction du profil -->
       <app-dashboard-card></app-dashboard-card>
@@ -25,10 +25,10 @@
 
 
 
-    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddField()" expand="block" class="big-button">Ajouter un champ</ion-button>
+    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddField()" expand="block" class="middle-button">Ajouter un champ</ion-button>
     
 
-    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddProduct()" expand="block" class="big-button">Ajouter un produit</ion-button>
+    <ion-button *ngIf="user.role == 'farmer'" (click)="goToAddProduct()" expand="block" class="middle-button">Ajouter un produit</ion-button>
 
 
 

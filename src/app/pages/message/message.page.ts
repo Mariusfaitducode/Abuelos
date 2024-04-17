@@ -48,12 +48,17 @@ export class MessagePage implements OnInit, OnDestroy {
       this.messagingService.getConversations().subscribe(conversations => {
         this.conversations = conversations;
 
+        console.log('Conversations : ', this.conversations);  
+
         if (!this.conversations) return;
         for (let conversation of this.conversations){
-          this.userService.searchUserWithId(conversation.users.find(u => u !== this.user?.uid)!).subscribe(user => {
 
-            this.correpondent.push(user as User);
-          });
+          if (conversation){
+            this.userService.searchUserWithId(conversation.users.find(u => u !== this.user?.uid)!).subscribe(user => {
+
+              this.correpondent.push(user as User);
+            });
+          }
         }
       });
     });

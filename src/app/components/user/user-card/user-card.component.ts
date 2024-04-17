@@ -15,15 +15,21 @@ export class UserCardComponent  implements OnInit {
 
 
   @Input() user : User = new User();
+  @Input() isCurrentUser : boolean = false;
 
   ngOnInit() {}
 
-  goToEdit(){
-    this.router.navigate(['profile/edit-profile']);
-  }
 
-  goToChat(){
-    this.router.navigate(['chat/' + this.user!.uid]);
+  cardNavigation(){
+    if (this.isCurrentUser){
+      this.router.navigate(['profile/edit-profile']);
+      
+    }else{
+      this.router.navigate(['chat/' + this.user!.uid]);
+      
+    }
+  
+
   }
 
 }

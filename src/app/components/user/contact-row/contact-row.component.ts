@@ -12,7 +12,7 @@ export class ContactRowComponent  implements OnInit {
 
   constructor(private router : Router) { }
 
-  @Input() user : User | null = null;
+  @Input() user : User = new User();
 
   @Input() conv : Conversation | null = null;
 

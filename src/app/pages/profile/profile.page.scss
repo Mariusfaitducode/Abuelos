@@ -19,6 +19,11 @@
 }
 
 
+.horizontal-list{
+    padding-bottom: 16px;
+}
+
+
 .menu-header{
     display: flex;
     flex-direction: row;
@@ -67,6 +72,4 @@
     font-weight: bold;
 
     border-bottom: 1px solid var(--light-gray);
-
-    
 }

@@ -1,9 +1,12 @@
 
 
-<ion-card class="seller-row" (click)="goToChat()">
+<ion-card class="seller-row" (click)="cardNavigation()">
 
   <div class="seller-infos">
-    <img [src]="user.avatar" width="60px" height="60px" alt="" class="pseudo-image">
+    <img *ngIf="user.avatar" [src]="user.avatar" width="60px" height="60px" alt="" class="pseudo-image">
+
+    <img *ngIf="!user.avatar" [src]="'/../../../assets/images/basics/avatar.png'" width="60px" height="60px" alt="" class="pseudo-image">
+
 
     <div class="seller-name">
       <ion-card-title class="card-title">{{user.firstname}}</ion-card-title>

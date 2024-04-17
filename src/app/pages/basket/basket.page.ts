@@ -4,6 +4,8 @@ import { User } from 'src/app/models/user';
 import { BasketService } from 'src/app/services/product/basket.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tab2',
@@ -13,6 +15,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class BasketPage {
 
   constructor(
+    private router : Router, 
     private userService : UserService,
     private productService : ProductService,
     private basketService : BasketService) {}
@@ -63,6 +66,10 @@ export class BasketPage {
     console.log("REMOVE")
     console.log(order)
     this.basketService.updateProductInBasket(order.product!, order.quantity-1).subscribe();
+  }
+
+  goToBasket(){
+    this.router.navigate(['tabs/search']);
   }
 
 }
